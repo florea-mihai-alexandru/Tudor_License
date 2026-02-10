@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -13,6 +14,12 @@ public class Player : MonoBehaviour
     [SerializeField]
     private PlayerData playerData;
 
+    public Rigidbody RB { get; private set; }
+
+    public PlayerInputManager PlayerInput { get; private set; }
+
+    public Vector3 CurrentVelocity { get; private set; }
+
     private void Awake()
     {
         StateMachine = new PlayerStateMachine();
@@ -22,18 +29,26 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        Anim = GetComponent<Animator>();
+        Anim = GetComponentInChildren<Animator>();
+        PlayerInput = GetComponent<PlayerInputManager>();
+        RB = GetComponent<Rigidbody>();
 
         StateMachine.Initialize(IdleState);
     }
 
     private void Update()
     {
+        CurrentVelocity = RB.linearVelocity;
         StateMachine.CurrentState.LogicUpdate();
     }
 
     private void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
+    }
+
+    public void SetVelocity(Vector3 velocity)
+    {
+        RB.linearVelocity = velocity;
     }
 }
