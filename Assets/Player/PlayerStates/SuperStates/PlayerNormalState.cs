@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerNormalState : PlayerState
 {
-    protected Vector3 input;
+    protected Vector3 moveInput;
     public PlayerNormalState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
 
@@ -26,7 +26,13 @@ public class PlayerNormalState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        input = player.PlayerInput.MoveInput;
+        moveInput = player.PlayerInput.MoveInput;
+        
+        if (player.PlayerInput.DashInput)
+        {
+            stateMachine.ChangeState(player.DashState);
+            player.PlayerInput.DashUsed();
+        }
     }
 
     public override void PhysicsUpdate()

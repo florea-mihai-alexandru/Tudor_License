@@ -24,15 +24,16 @@ public class PlayerMoveState : PlayerNormalState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (input.x == 0  && input.y == 0)
+        if (moveInput.x == 0  && moveInput.y == 0)
         {
             stateMachine.ChangeState(player.IdleState);
         }
 
-        player.SetVelocity(new Vector3(input.x * playerData.playerSpeed, 0, input.y * playerData.playerSpeed));
+        if (stateMachine.CurrentState != player.DashState) 
+            player.SetVelocity(new Vector3(moveInput.x * playerData.playerSpeed, 0, moveInput.y * playerData.playerSpeed));
 
-        player.Anim.SetFloat("xVelocity", input.x);
-        player.Anim.SetFloat("yVelocity", input.y);
+        player.Anim.SetFloat("xVelocity", moveInput.x);
+        player.Anim.SetFloat("yVelocity", moveInput.y);
     }
 
     public override void PhysicsUpdate()

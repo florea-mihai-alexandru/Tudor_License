@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public class PlayerIdleState : PlayerNormalState
+public class PlayerAilityState : PlayerState
 {
-    public PlayerIdleState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
+    protected bool abilityDone;
+
+    public PlayerAilityState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
 
     }
@@ -15,7 +17,7 @@ public class PlayerIdleState : PlayerNormalState
     public override void Enter()
     {
         base.Enter();
-        //player.SetVelocity(Vector3.zero);
+        abilityDone = false;
     }
 
     public override void Exit()
@@ -26,9 +28,10 @@ public class PlayerIdleState : PlayerNormalState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (moveInput.x != 0 || moveInput.y != 0)
+
+        if (abilityDone)
         {
-            stateMachine.ChangeState(player.MoveState);
+            stateMachine.ChangeState(player.IdleState);
         }
     }
 
