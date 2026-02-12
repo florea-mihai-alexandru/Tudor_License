@@ -9,6 +9,7 @@ public class PlayerInputManager : MonoBehaviour
     public bool DashInput { get; private set; }
     public bool AttackInput { get; private set; }
     public bool InteractionInput {  get; private set; }
+    public bool BlockInput { get; private set; }
 
     public void OnMoveInput(InputAction.CallbackContext context)
     {
@@ -18,18 +19,8 @@ public class PlayerInputManager : MonoBehaviour
 
     public void OnAttackInput(InputAction.CallbackContext context)
     {
-        //if (context.started)
-        //{
-        //    Debug.Log("Attack");
-        //}
-        //if (context.performed)
-        //{
-        //    Debug.Log("HELD");
-        //}
-        //if (context.canceled)
-        //{
-        //    Debug.Log("RELEASE");
-        //}
+        if (context.started)
+            AttackInput = true;
     }
 
     public void OnDashInput(InputAction.CallbackContext context)
@@ -39,6 +30,6 @@ public class PlayerInputManager : MonoBehaviour
     }
 
     public void DashUsed() => DashInput = false;
-
+    public void AttackUsed() => AttackInput = false;
 }
 

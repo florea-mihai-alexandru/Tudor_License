@@ -33,6 +33,12 @@ public class PlayerNormalState : PlayerState
             stateMachine.ChangeState(player.DashState);
             player.PlayerInput.DashUsed();
         }
+
+        if (player.PlayerInput.AttackInput)
+        {
+            stateMachine.ChangeState(player.AttackState);
+            player.PlayerInput.AttackUsed();
+        }
     }
 
     public override void PhysicsUpdate()
