@@ -5,8 +5,6 @@ public class Player : MonoBehaviour
 {
     #region TODO
     //TODO
-    //  De adaugat dash power in player data
-    //  De adaugat ability done ca in tutorial
     //  De sters override uri inutile
     //  Animatie dash
     //

@@ -33,10 +33,6 @@ public class PlayerDashState : PlayerAilityState
 
         if (runTime >= dashTime) 
             abilityDone = true;
-        else
-        {
-            Debug.Log("dashasdasd" + dashTime);
-        }
     }
 
     public override void PhysicsUpdate()

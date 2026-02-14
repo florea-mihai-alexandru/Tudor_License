@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: playerData
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   playerSpeed: 50
+  dashPower: 150
+  dashTime: 0.15
