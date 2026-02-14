@@ -16,6 +16,7 @@ public class PlayerNormalState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        player.PlayerSprite.flipX = false;
     }
 
     public override void Exit()
