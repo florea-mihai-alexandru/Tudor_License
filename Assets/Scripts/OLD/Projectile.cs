@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.CompareTag("Player")) return;
         // Cautam componenta Enemy pe orice obiect atingem
-        PlayerStats enemyScript = other.GetComponent<PlayerStats>();
+        HealthStats enemyScript = other.GetComponent<HealthStats>();
 
         if (enemyScript != null)
         {

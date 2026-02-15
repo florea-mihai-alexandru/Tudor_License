@@ -14,7 +14,7 @@ public class HealthBarController : MonoBehaviour
     public GameObject heartContainerPrefab;
 
     [SerializeField]
-    public PlayerStats stats;
+    public HealthStats stats;
 
     private void Start()
     {

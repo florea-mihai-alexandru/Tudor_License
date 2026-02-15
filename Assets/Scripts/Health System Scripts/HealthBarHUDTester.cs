@@ -8,16 +8,16 @@ public class HealthBarHUDTester : MonoBehaviour
 {
     public void AddHealth()
     {
-        PlayerStats.Instance.AddHealth();
+        HealthStats.Instance.AddHealth();
     }
 
     public void Heal(float health)
     {
-        PlayerStats.Instance.Heal(health);
+        HealthStats.Instance.Heal(health);
     }
 
     public void Hurt(float dmg)
     {
-        PlayerStats.Instance.TakeDamage(dmg);
+        HealthStats.Instance.TakeDamage(dmg);
     }
 }

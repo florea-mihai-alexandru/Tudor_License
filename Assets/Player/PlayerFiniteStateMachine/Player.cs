@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public PlayerInputManager PlayerInput { get; private set; }
     public TrailRenderer DashTrail { get; private set; }
     public SpriteRenderer PlayerSprite { get; private set; }
+    public HealthStats PlayerHealthStats { get; private set; }
 
     #endregion
 
@@ -58,9 +59,13 @@ public class Player : MonoBehaviour
         RB = GetComponent<Rigidbody>();
 
         DashTrail = GetComponentInChildren<TrailRenderer>();
-        DashTrail.enabled = false;
+        if (DashTrail != null) 
+            DashTrail.enabled = false;
 
         PlayerSprite = playerSpriteTransform.GetComponent<SpriteRenderer>();
+
+        PlayerHealthStats = GetComponent<HealthStats>();
+        Debug.Log("Player health stats: " + PlayerHealthStats.Health + "health " + PlayerHealthStats.MaxHealth);
 
         StateMachine.Initialize(IdleState);
     }

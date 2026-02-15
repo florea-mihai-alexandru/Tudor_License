@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     protected CombatManager combatManager;
     protected AnimationManager animationManager;
 
-    protected PlayerStats stats;
+    protected HealthStats stats;
 
     protected bool isWalking = false;
     protected bool dead = false;
@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody>();        
         combatManager = gameObject.GetComponentInChildren<CombatManager>();
         animationManager = gameObject.GetComponentInChildren<AnimationManager>();
-        stats = gameObject.GetComponentInChildren<PlayerStats>();
+        stats = gameObject.GetComponentInChildren<HealthStats>();
     }
 
     protected void Update()

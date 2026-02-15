@@ -17,7 +17,8 @@ public class PlayerDashState : PlayerAilityState
     public override void Enter()
     {
         base.Enter();
-        player.DashTrail.enabled = true;
+        if (player.DashTrail != null) 
+            player.DashTrail.enabled = true;
 
         if (player.CheckIfShouldFlip()) 
             player.PlayerSprite.flipX = true;
@@ -28,7 +29,9 @@ public class PlayerDashState : PlayerAilityState
     public override void Exit()
     {
         base.Exit();
-        player.DashTrail.enabled = false;
+
+        if (player.DashTrail != null)
+            player.DashTrail.enabled = false;
         //player.SetVelocity(Vector3.zero);
     }
 

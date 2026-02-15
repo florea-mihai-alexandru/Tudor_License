@@ -317,6 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   playerData: {fileID: 11400000, guid: 6f6b9ff2b2388a8429e80264ddf2ede4, type: 2}
+  playerSpriteTransform: {fileID: 331132777}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0

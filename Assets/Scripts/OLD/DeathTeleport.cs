@@ -9,7 +9,7 @@ public class DeathTeleport : MonoBehaviour
     public string sceneToLoad = "MainMenu";
 
     public LevelLoader levelLoader;
-    public PlayerStats playerstats; // Presupunem că ai deja scriptul PlayerStats
+    public HealthStats playerstats; // Presupunem că ai deja scriptul PlayerStats
 
     private bool hasTriggered = false;
 

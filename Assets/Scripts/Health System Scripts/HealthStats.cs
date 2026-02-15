@@ -4,21 +4,17 @@
 
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour
+public class HealthStats : MonoBehaviour
 {
     public delegate void OnHealthChangedDelegate();
     public OnHealthChangedDelegate onHealthChangedCallback;
 
     #region Sigleton
-    private static PlayerStats instance;
-    public static PlayerStats Instance
+    [SerializeField]
+    private static HealthStats instance;
+    public static HealthStats Instance
     {
-        get
-        {
-            if (instance == null)
-                instance = FindObjectOfType<PlayerStats>();
-            return instance;
-        }
+        get;
     }
     #endregion
 
