@@ -128,11 +128,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 158446018}
+  - component: {fileID: 158446024}
   - component: {fileID: 158446019}
   - component: {fileID: 158446020}
+  - component: {fileID: 158446025}
   - component: {fileID: 158446022}
   - component: {fileID: 158446021}
-  - component: {fileID: 158446024}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -319,6 +320,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   playerData: {fileID: 11400000, guid: 6f6b9ff2b2388a8429e80264ddf2ede4, type: 2}
   playerSpriteTransform: {fileID: 331132777}
+--- !u!114 &158446025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158446017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0b64c0b1dccc64d91eee52d85267bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthStats
+  health: 3
+  maxHealth: 5
+  maxTotalHealth: 10
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
