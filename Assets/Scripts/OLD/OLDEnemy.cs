@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class OLDEnemy : MonoBehaviour
 {
     public float health;
     public float speed;

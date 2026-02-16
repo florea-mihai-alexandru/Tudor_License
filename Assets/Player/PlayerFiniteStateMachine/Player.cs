@@ -7,8 +7,6 @@ public class Player : MonoBehaviour
     #region TODO
     //TODO
     //  De sters override uri inutile
-    //  Animatie dash
-    //
     #endregion
 
     #region State variables
