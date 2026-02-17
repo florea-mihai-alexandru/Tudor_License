@@ -8,6 +8,8 @@ public class PlayerAttackState : PlayerAilityState
         : base(player, stateMachine, playerData, animBoolName)
     {
         this.weapon = weapon;
+
+        weapon.OnExit += ExitHandler;
     }
 
     public override void DoChecks()
@@ -35,5 +37,11 @@ public class PlayerAttackState : PlayerAilityState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+    }
+
+    private void ExitHandler()
+    {
+        AnimationFinishTrigger();
+        abilityDone = true;
     }
 }

@@ -6,6 +6,8 @@ public class PlayerState
     protected PlayerStateMachine stateMachine;
     protected PlayerData playerData;
 
+    protected bool isAnimationFinished;
+
     protected float startTime;
 
     private string animBoolName;
@@ -46,4 +48,6 @@ public class PlayerState
     {
 
     }
+
+    public virtual void AnimationFinishTrigger() => isAnimationFinished = true;
 }
