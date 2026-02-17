@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 158446022}
   - component: {fileID: 158446021}
   - component: {fileID: 158446024}
+  - component: {fileID: 158446025}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -155,6 +156,7 @@ Transform:
   m_Children:
   - {fileID: 331132777}
   - {fileID: 292310855}
+  - {fileID: 795958668}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &158446019
@@ -322,7 +324,79 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   playerData: {fileID: 11400000, guid: 6f6b9ff2b2388a8429e80264ddf2ede4, type: 2}
-  gameHandler: {fileID: 864864780}
+  playerSpriteTransform: {fileID: 331132777}
+--- !u!114 &158446025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158446017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0b64c0b1dccc64d91eee52d85267bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthStats
+  health: 0
+  maxHealth: 0
+  maxTotalHealth: 0
+--- !u!1001 &195051876
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 158446018}
+    m_Modifications:
+    - target: {fileID: 7793363337188035915, guid: ed54be45dd6ef8b4eb209fbe47b01868, type: 3}
+      propertyPath: m_Name
+      value: Weapon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032999758793092261, guid: ed54be45dd6ef8b4eb209fbe47b01868, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.12001991
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032999758793092261, guid: ed54be45dd6ef8b4eb209fbe47b01868, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 33.60254
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032999758793092261, guid: ed54be45dd6ef8b4eb209fbe47b01868, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -38.5461
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032999758793092261, guid: ed54be45dd6ef8b4eb209fbe47b01868, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032999758793092261, guid: ed54be45dd6ef8b4eb209fbe47b01868, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032999758793092261, guid: ed54be45dd6ef8b4eb209fbe47b01868, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032999758793092261, guid: ed54be45dd6ef8b4eb209fbe47b01868, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032999758793092261, guid: ed54be45dd6ef8b4eb209fbe47b01868, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032999758793092261, guid: ed54be45dd6ef8b4eb209fbe47b01868, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8032999758793092261, guid: ed54be45dd6ef8b4eb209fbe47b01868, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ed54be45dd6ef8b4eb209fbe47b01868, type: 3}
 --- !u!1 &292310854
 GameObject:
   m_ObjectHideFlags: 0
@@ -964,6 +1038,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0877e8b04ed474248a7c96c129510c92, type: 3}
+--- !u!4 &795958668 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8032999758793092261, guid: ed54be45dd6ef8b4eb209fbe47b01868, type: 3}
+  m_PrefabInstance: {fileID: 195051876}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,9 +1121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a34064bb70daad4294529d586f9fd28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameHandler
-  mouseColliderLayerMask:
-    serializedVersion: 2
-    m_Bits: 1024
 --- !u!4 &864864781
 Transform:
   m_ObjectHideFlags: 0
