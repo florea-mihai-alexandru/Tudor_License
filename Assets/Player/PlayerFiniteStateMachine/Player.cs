@@ -38,18 +38,22 @@ public class Player : MonoBehaviour
 
     #region Other variables
     public Vector3 CurrentVelocity { get; private set; }
-    [SerializeField] public GameHandler gameHandler;
+    //[SerializeField] public GameHandler gameHandler;
+
+    private Weapon weapon;
 
     #endregion
 
     #region Unity Callback Functions
     private void Awake()
     {
+        weapon = transform.Find("Weapon").GetComponent<Weapon>();
+
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
         DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
-        AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+        AttackState = new PlayerAttackState(this, StateMachine, playerData, "empty", weapon);
     }
 
     private void Start()
@@ -67,7 +71,7 @@ public class Player : MonoBehaviour
         CurrentVelocity = RB.linearVelocity;
         StateMachine.CurrentState.LogicUpdate();
 
-        WeaponParent.PointerPosition = gameHandler.MouseScreenCoords;
+        //WeaponParent.PointerPosition = gameHandler.MouseScreenCoords;
     }
 
     private void FixedUpdate()

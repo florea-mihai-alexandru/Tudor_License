@@ -1,9 +1,13 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerAttackState : PlayerAilityState
 {
-    public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
+    private Weapon weapon;
+    public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName, Weapon weapon) 
+        : base(player, stateMachine, playerData, animBoolName)
     {
+        this.weapon = weapon;
     }
 
     public override void DoChecks()
@@ -14,6 +18,8 @@ public class PlayerAttackState : PlayerAilityState
     public override void Enter()
     {
         base.Enter();
+
+        weapon.Enter();
     }
 
     public override void Exit()
