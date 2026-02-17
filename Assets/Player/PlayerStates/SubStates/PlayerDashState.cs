@@ -17,12 +17,21 @@ public class PlayerDashState : PlayerAilityState
     public override void Enter()
     {
         base.Enter();
+        if (player.DashTrail != null) 
+            player.DashTrail.enabled = true;
+
+        if (player.CheckIfShouldFlip()) 
+            player.PlayerSprite.flipX = true;
+
         player.SetVelocity(player.GetLookDir() * playerData.playerSpeed * 3);
     }
 
     public override void Exit()
     {
         base.Exit();
+
+        if (player.DashTrail != null)
+            player.DashTrail.enabled = false;
         //player.SetVelocity(Vector3.zero);
     }
 
@@ -33,10 +42,6 @@ public class PlayerDashState : PlayerAilityState
 
         if (runTime >= dashTime) 
             abilityDone = true;
-        else
-        {
-            Debug.Log("dashasdasd" + dashTime);
-        }
     }
 
     public override void PhysicsUpdate()

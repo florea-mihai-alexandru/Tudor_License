@@ -317,6 +317,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
   playerData: {fileID: 11400000, guid: 6f6b9ff2b2388a8429e80264ddf2ede4, type: 2}
+  playerSpriteTransform: {fileID: 331132777}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +902,7 @@ GameObject:
   - component: {fileID: 946535691}
   - component: {fileID: 946535690}
   m_Layer: 0
-  m_Name: CinemachineCamera
+  m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1102,9 +1103,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 330585546}
+  - {fileID: 946535692}
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 2101854431}
   - {fileID: 158446018}
-  - {fileID: 946535692}
   - {fileID: 389900878}

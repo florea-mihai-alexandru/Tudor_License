@@ -1,3 +1,4 @@
+using Mono.Cecil.Cil;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,11 +6,7 @@ public class Player : MonoBehaviour
 {
     #region TODO
     //TODO
-    //  De adaugat dash power in player data
-    //  De adaugat ability done ca in tutorial
     //  De sters override uri inutile
-    //  Animatie dash
-    //
     #endregion
 
     #region State variables
@@ -30,11 +27,17 @@ public class Player : MonoBehaviour
     public Animator Anim { get; private set; }
     public Rigidbody RB { get; private set; }
     public PlayerInputManager PlayerInput { get; private set; }
+    public TrailRenderer DashTrail { get; private set; }
+    public SpriteRenderer PlayerSprite { get; private set; }
+    public HealthStats PlayerHealthStats { get; private set; }
 
     #endregion
 
     #region Other variables
     public Vector3 CurrentVelocity { get; private set; }
+
+    [SerializeField]
+    private Transform playerSpriteTransform;
 
     #endregion
 
@@ -52,6 +55,15 @@ public class Player : MonoBehaviour
         Anim = GetComponentInChildren<Animator>();
         PlayerInput = GetComponent<PlayerInputManager>();
         RB = GetComponent<Rigidbody>();
+
+        DashTrail = GetComponentInChildren<TrailRenderer>();
+        if (DashTrail != null) 
+            DashTrail.enabled = false;
+
+        PlayerSprite = playerSpriteTransform.GetComponent<SpriteRenderer>();
+
+        PlayerHealthStats = GetComponent<HealthStats>();
+        Debug.Log("Player health stats: " + PlayerHealthStats.Health + "health " + PlayerHealthStats.MaxHealth);
 
         StateMachine.Initialize(IdleState);
     }
@@ -90,6 +102,17 @@ public class Player : MonoBehaviour
         {
             return Vector3.zero;
         }
+    }
+    #endregion
+
+    #region Check Functions
+    public bool CheckIfShouldFlip()
+    {
+        Vector3 LookDir = GetLookDir();
+        //Debug.Log(LookDir + "LOOKDIR");
+        if (LookDir.x < 0)
+            return true;
+        return false;
     }
     #endregion
 

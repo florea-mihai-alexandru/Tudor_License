@@ -116,7 +116,7 @@ public class CombatManager : MonoBehaviour
 
             //if (Vector3.Dot(direction, dirToEnemy) > 0.1f)
             //{
-                PlayerStats enemyScript = enemy.GetComponentInChildren<PlayerStats>();
+                HealthStats enemyScript = enemy.GetComponentInChildren<HealthStats>();
                 if (enemyScript != null)
                 {
                 Debug.Log("TOOK DAMAGE");
