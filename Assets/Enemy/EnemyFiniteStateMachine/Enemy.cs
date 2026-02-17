@@ -5,33 +5,24 @@ public class Enemy : MonoBehaviour
     public EnemyStateMachine StateMachine;
 
     [SerializeField]
-    private EnemyData enemyData;
-    public EnemyIdleState IdleState { get; private set; }
-    public EnemyWanderState WanderState { get; private set; }
+    protected EnemyData enemyData;
 
     public Animator Anim { get; private set; }
     public Rigidbody RB { get; private set; }
 
-    private void Awake()
+    public virtual void Start()
     {
         RB = GetComponent<Rigidbody>();
         Anim = GetComponentInChildren<Animator>();
 
         StateMachine = new EnemyStateMachine();
-        IdleState = new EnemyIdleState(this, StateMachine, enemyData, "idle", 2f);
-        WanderState = new EnemyWanderState(this, StateMachine, enemyData, "walk", 3f);
-        StateMachine.Initialize(IdleState);
-    }
-    void Start()
-    {
-        
     }
 
-    void Update()
+    public virtual void Update()
     {
         StateMachine.CurrentState.LogicUpdate();
     }
-    private void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         StateMachine.CurrentState.PhysicsUpdate();
     }

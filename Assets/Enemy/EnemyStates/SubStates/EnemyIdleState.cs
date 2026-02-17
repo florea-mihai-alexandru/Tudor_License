@@ -1,10 +1,12 @@
 using UnityEngine;
 
-public class EnemyIdleState : EnemyNormalState
+public class EnemyIdleState : EnemyState
 {
-    public EnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName, float duration) : base(enemy, stateMachine, enemyData, animBoolName, duration)
+    protected float duration;
+    protected float timePassed;
+    public EnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName, float duration) : base(enemy, stateMachine, enemyData, animBoolName)
     {
-
+        this.duration = duration;
     }
 
     public override void DoChecks()
@@ -15,6 +17,7 @@ public class EnemyIdleState : EnemyNormalState
     public override void Enter()
     {
         base.Enter();
+        timePassed = 0;
     }
 
     public override void Exit()
@@ -25,10 +28,11 @@ public class EnemyIdleState : EnemyNormalState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        if (timePassed >= duration)
-        {
-            stateMachine.ChangeState(enemy.WanderState);
-        }
+        timePassed += Time.deltaTime;
+        //if (timePassed >= duration)
+        //{
+        //    stateMachine.ChangeState(enemy.WanderState);
+        //}
     }
 
     public override void PhysicsUpdate()
