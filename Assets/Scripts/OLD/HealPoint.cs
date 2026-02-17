@@ -5,7 +5,7 @@ using UnityEngine;
 public class HealPoint : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] public PlayerStats playerstats;
+    [SerializeField] public HealthStats playerstats;
 
     void Start()
     {
