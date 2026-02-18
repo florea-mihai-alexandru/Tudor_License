@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    [field: SerializeField] public WeaponDataSO Data {  get; private set; }
+
     public event Action OnEnter;
     public event Action OnExit;
 
@@ -32,6 +34,7 @@ public class Weapon : MonoBehaviour
     {
         BaseGameObject = transform.Find("Base").gameObject;
         WeaponSpriteGameObject = transform.Find("WeaponSprite").gameObject;
+        
         anim = BaseGameObject.GetComponent<Animator>();
 
         eventHandler = BaseGameObject.GetComponent<WeaponAnimationEventHandler>();

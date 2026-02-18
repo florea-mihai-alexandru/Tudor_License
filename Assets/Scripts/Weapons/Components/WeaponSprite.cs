@@ -6,13 +6,14 @@ public class WeaponSprite : WeaponComponent
     private SpriteRenderer baseSpriteRenderer;
     private SpriteRenderer weaponSpriteRenderer;
 
-    [SerializeField] private WeaponSprites[] weaponSprites;
-
     private int currentWeaponSpriteIndex;
+
+    private WeaponSpriteData data;
 
     protected override void HandleEnter()
     {
         base.HandleEnter();
+
         currentWeaponSpriteIndex = 0;
     }
 
@@ -24,7 +25,7 @@ public class WeaponSprite : WeaponComponent
             return;
         }
 
-        var currentAttackSprites = weaponSprites[0].Sprites;
+        var currentAttackSprites = data.AttackData[0].Sprites;
 
         if (currentWeaponSpriteIndex >= currentAttackSprites.Length) 
         {
@@ -44,6 +45,7 @@ public class WeaponSprite : WeaponComponent
         baseSpriteRenderer = transform.Find("Base").GetComponent<SpriteRenderer>();
         weaponSpriteRenderer = transform.Find("WeaponSprite").GetComponent<SpriteRenderer>();
 
+        data = weapon.Data.GetData<WeaponSpriteData>();
 
         // TO DO: Fix when we create weapon data
         //baseSpriteRenderer = weapon.BaseGameObject.GetComponent<SpriteRenderer>();
@@ -69,8 +71,3 @@ public class WeaponSprite : WeaponComponent
     }
 }
 
-[Serializable]
-public class WeaponSprites
-{
-    [field: SerializeField] public Sprite[] Sprites {  get; private set; }
-}
