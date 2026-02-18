@@ -3,10 +3,12 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public event Action OnEnter;
     public event Action OnExit;
 
     private Animator anim;
-    private GameObject baseGameObject;
+    public GameObject BaseGameObject { get; private set; }
+    public GameObject WeaponSpriteGameObject { get; private set; }
 
     private WeaponAnimationEventHandler eventHandler;
 
@@ -15,6 +17,8 @@ public class Weapon : MonoBehaviour
         print($"{transform.name} enter");
 
         anim.SetBool("active", true);
+
+        OnEnter?.Invoke();
     }
 
     private void Exit()
@@ -26,10 +30,11 @@ public class Weapon : MonoBehaviour
 
     private void Awake()
     {
-        baseGameObject = transform.Find("Base").gameObject;
-        anim = baseGameObject.GetComponent<Animator>();
+        BaseGameObject = transform.Find("Base").gameObject;
+        WeaponSpriteGameObject = transform.Find("WeaponSprite").gameObject;
+        anim = BaseGameObject.GetComponent<Animator>();
 
-        eventHandler = baseGameObject.GetComponent<WeaponAnimationEventHandler>();
+        eventHandler = BaseGameObject.GetComponent<WeaponAnimationEventHandler>();
     }
 
     private void OnEnable()
