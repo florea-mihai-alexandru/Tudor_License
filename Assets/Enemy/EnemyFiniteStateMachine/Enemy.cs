@@ -1,5 +1,7 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Analytics;
 
 public class Enemy : MonoBehaviour
 {

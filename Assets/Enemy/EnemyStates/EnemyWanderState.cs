@@ -10,20 +10,10 @@ public class EnemyWanderState : EnemyState
         this.duration = duration;
     }
 
-    public override void DoChecks()
-    {
-        base.DoChecks();
-    }
-
     public override void Enter()
     {
         base.Enter();
         timePassed = 0;
-    }
-
-    public override void Exit()
-    {
-        base.Exit();
     }
 
     public override void LogicUpdate()
@@ -31,8 +21,9 @@ public class EnemyWanderState : EnemyState
         base.LogicUpdate();
         timePassed += Time.deltaTime;
 
-        //enemy.SetVelocity(enemy.FacingDirection * enemyData.wanderSpeed);
-        enemy.DesiredDestination = enemy.PlayerTransform.position;
+        if (enemy.PlayerTransform != null) {
+            enemy.DesiredDestination = enemy.PlayerTransform.position;
+        }
         enemy.EnemyNavMeshAgent.SetDestination(enemy.DesiredDestination);
 
         Vector3 desired = enemy.EnemyNavMeshAgent.desiredVelocity;
@@ -40,7 +31,6 @@ public class EnemyWanderState : EnemyState
 
         enemy.SetVelocity(dir * enemyData.wanderSpeed);
 
-        //enemy.NavMeshAgent.des
         Debug.Log(enemy.EnemyNavMeshAgent.desiredVelocity +  " desired vel");
     }
 

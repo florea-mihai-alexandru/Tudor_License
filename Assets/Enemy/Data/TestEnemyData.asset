@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bee9f336c406e474094815090f2d610a, type: 3}
   m_Name: TestEnemyData
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
-  wanderSpeed: 50
+  wanderSpeed: 25
+  attackDuration: 1.5

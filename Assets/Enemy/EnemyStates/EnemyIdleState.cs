@@ -29,10 +29,6 @@ public class EnemyIdleState : EnemyState
     {
         base.LogicUpdate();
         timePassed += Time.deltaTime;
-        //if (timePassed >= duration)
-        //{
-        //    stateMachine.ChangeState(enemy.WanderState);
-        //}
     }
 
     public override void PhysicsUpdate()
