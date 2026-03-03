@@ -31,7 +31,7 @@ public class EnemyWanderState : EnemyState
 
         enemy.SetVelocity(dir * enemyData.wanderSpeed);
 
-        Debug.Log(enemy.EnemyNavMeshAgent.desiredVelocity +  " desired vel");
+        //Debug.Log(enemy.EnemyNavMeshAgent.desiredVelocity +  " desired vel");
     }
 
     public override void PhysicsUpdate()

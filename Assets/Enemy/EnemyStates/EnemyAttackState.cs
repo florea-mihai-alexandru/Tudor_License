@@ -5,15 +5,30 @@ public class EnemyAttackState : EnemyState
 {
     protected Vector3 attackPos;
     protected bool attackDone = false;
+    bool preWindup;
+
+    protected float preWindupTime = 0f;
+    protected float attackTime = 0f;
+
+    protected float attackDuration;
+    protected float preWindupDuration;
     public EnemyAttackState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName) : base(enemy, stateMachine, enemyData, animBoolName)
     {
-        
+        attackDuration = enemyData.attackDuration;
+        preWindupDuration = enemyData.preWindupDuration;
     }
 
     public override void Enter()
     {
         base.Enter();
-        attackPos = enemy.PlayerTransform.position;
+        enemy.SetVelocity(Vector3.zero);
+
+        preWindup = true;
+        attackDone = false;
+
+        preWindupTime = 0f;
+        attackTime = 0f;
+
     }
 
     public override void Exit()
@@ -24,6 +39,32 @@ public class EnemyAttackState : EnemyState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+        if (preWindup)
+        {
+            if (preWindupTime >= preWindupDuration)
+            {
+                preWindup = false;
+                attackPos = enemy.PlayerTransform.position;
+
+                //Debug.Log("time of exit PREW " + preWindupTime);
+                Debug.Log("Exited prewindup, pos set to: " + attackPos);
+            }
+
+            preWindupTime += Time.deltaTime;
+        }
+        else
+        {
+            if (attackTime >= attackDuration)
+            {
+                //Debug.Log("Attack performed on time " + attackTime);
+                enemy.performAttack(attackPos);
+                attackDone = true;
+            }
+
+            attackTime += Time.deltaTime;
+        }
+
+        
     }
 
    

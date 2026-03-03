@@ -15,5 +15,11 @@ public class Computer_WanderState : EnemyWanderState
         {
             stateMachine.ChangeState(Cenemy.IdleState);
         }
+        //Debug.Log("Distance to player: " + enemy.distanceToPlayer());
+        if (enemy.distanceToPlayer() <= enemyData.attackDisThresh)
+        {
+            stateMachine.ChangeState(Cenemy.AttackState);
+        }
+
     }
 }

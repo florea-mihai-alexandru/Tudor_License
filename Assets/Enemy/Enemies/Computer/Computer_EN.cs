@@ -4,6 +4,7 @@ public class Computer_EN : Enemy
 {
     public Computer_IdleState IdleState { get; private set; }
     public Computer_WanderState WanderState { get; private set; }
+    public EnemyAttackState AttackState { get; private set; }
 
     /// <summary> TODO
     ///  De facut wander state: 
@@ -16,6 +17,8 @@ public class Computer_EN : Enemy
         base.Start();
         IdleState = new Computer_IdleState(this, StateMachine, enemyData, "idle", 2f, this);
         WanderState = new Computer_WanderState(this, StateMachine, enemyData, "walk", 2f, this);
+        AttackState = new EnemyAttackState(this, StateMachine, enemyData, "attack");
+        
 
         StateMachine.Initialize(WanderState);
     }
