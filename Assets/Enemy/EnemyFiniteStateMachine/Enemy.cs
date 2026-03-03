@@ -26,13 +26,14 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private LayerMask whatIsOponent;
-
     public LayerMask WhatIsOponent { get; private set; }
+
+    public Transform AttackPos { get; private set; } // TODO GET ATTACK POS
 
     [SerializeField]
     private Transform navMeshTransform;
     public Vector3 NavMeshOffset { get; private set; }
-
+    
     public virtual void Start()
     {
         RB = GetComponent<Rigidbody>();
@@ -96,14 +97,14 @@ public class Enemy : MonoBehaviour
             }
     }
 
-    //private void OnDrawGizmosSelected()
-    //{
-    //    //if (currentWeapon != null && attackPos != null)
-    //    //{
-    //    //    Gizmos.color = Color.red;
-    //    //    Gizmos.DrawWireSphere(attackPos.position, currentWeapon.attackRange);
-    //    //}
-    //}
+    private void OnDrawGizmosSelected()
+    {
+        //if (attackPos != null)
+        //{
+        //    Gizmos.color = Color.red;
+        //    Gizmos.DrawWireSphere(attackPos.position, currentWeapon.attackRange);
+        //}
+    }
 
 
 }
