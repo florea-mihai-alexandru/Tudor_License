@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   chaseDisThresh: 35
   attackDisThresh: 13
+  idleDuration: 2.4
+  wanderDuration: 5
   wanderSpeed: 25
+  wanderingDistanceRange: 60
   chaseSpeed: 40
   attackDuration: 0.5
   preWindupDuration: 1

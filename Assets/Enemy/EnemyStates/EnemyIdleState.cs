@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class EnemyIdleState : EnemyState
 {
-    protected float duration;
     protected float timePassed;
-    public EnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName, float duration) : base(enemy, stateMachine, enemyData, animBoolName)
+    public EnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName) : base(enemy, stateMachine, enemyData, animBoolName)
     {
-        this.duration = duration;
+
     }
 
     public override void DoChecks()

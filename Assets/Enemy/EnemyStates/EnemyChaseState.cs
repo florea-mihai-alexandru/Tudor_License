@@ -32,8 +32,8 @@ public class EnemyChaseState : EnemyState
             {
                  enemy.DesiredDestination = enemy.PlayerTransform.position;
             }
-            enemy.MoveTowardsDest(enemyData.chaseSpeed);
         }
+        enemy.MoveTowardsDest(enemyData.chaseSpeed);
         
         //enemy.EnemyNavMeshAgent.SetDestination(enemy.DesiredDestination);
 

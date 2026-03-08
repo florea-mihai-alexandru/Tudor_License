@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     public Transform attackPos;
-    public Vector3 CenterPos {get; private set; }
+    public Vector3 CentrePos {get; private set; }
 
     [SerializeField]
     private Transform navMeshTransform;
@@ -66,9 +66,9 @@ public class Enemy : MonoBehaviour
         EnemyCollider = GetComponentInChildren<Collider>();
         if (EnemyCollider != null)
         {
-            CenterPos = EnemyCollider.bounds.center;
+            CentrePos = EnemyCollider.bounds.center;
         }
-        Debug.Log(CenterPos);
+        Debug.Log(CentrePos);
      
         PlayerTransform = playerTransform;
         FacingDirection = new Vector3(1, 0, 0);
@@ -88,7 +88,7 @@ public class Enemy : MonoBehaviour
     {
         if (EnemyCollider != null)
         {
-            CenterPos = EnemyCollider.bounds.center;
+            CentrePos = EnemyCollider.bounds.center;
         }
         EnemyNavMeshAgent.nextPosition = RB.position + NavMeshOffset;
         StateMachine.CurrentState.PhysicsUpdate();
@@ -108,7 +108,7 @@ public class Enemy : MonoBehaviour
     public float distanceToPlayer()
     {
         //Debug.Log((CenterPos - playerTransform.position).magnitude);
-        return (CenterPos - playerTransform.position).magnitude;
+        return (CentrePos - playerTransform.position).magnitude;
     }
     GameObject FindChildWithTag(GameObject parent, string tag)
     {
@@ -158,9 +158,9 @@ public class Enemy : MonoBehaviour
     public bool CheckIfNavmeshArrived()
     {
         float dist = EnemyNavMeshAgent.remainingDistance;
-        if (!EnemyNavMeshAgent.pathPending && EnemyNavMeshAgent.remainingDistance <= EnemyNavMeshAgent.stoppingDistance)
+        if (EnemyNavMeshAgent.remainingDistance <= EnemyNavMeshAgent.stoppingDistance)
             return true;
-        Debug.Log("fasss" + "rem " + EnemyNavMeshAgent.remainingDistance);
+        //Debug.Log("remining " + EnemyNavMeshAgent.remainingDistance + " stopping " + EnemyNavMeshAgent.stoppingDistance);
         return false;
     }
 
@@ -169,8 +169,12 @@ public class Enemy : MonoBehaviour
     {
         if (attackPos != null && enemyData != null)
         {
+            // AOE Gizmos
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(attackPos.position, enemyData.AoE_Radius);
+
+            Gizmos.color = Color.aliceBlue;
+            Gizmos.DrawWireSphere(CentrePos, enemyData.chaseDisThresh);
         }
     }
     #endregion
