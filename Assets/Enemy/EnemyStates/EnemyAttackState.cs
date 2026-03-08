@@ -39,15 +39,12 @@ public class EnemyAttackState : EnemyState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+
         if (preWindup)
         {
             if (preWindupTime >= preWindupDuration)
             {
                 preWindup = false;
-                attackPos = enemy.PlayerTransform.position;
-
-                //Debug.Log("time of exit PREW " + preWindupTime);
-                Debug.Log("Exited prewindup, pos set to: " + attackPos);
             }
 
             preWindupTime += Time.deltaTime;
@@ -57,7 +54,7 @@ public class EnemyAttackState : EnemyState
             if (attackTime >= attackDuration)
             {
                 //Debug.Log("Attack performed on time " + attackTime);
-                enemy.performAttack(attackPos);
+                enemy.performAttack();
                 attackDone = true;
             }
 

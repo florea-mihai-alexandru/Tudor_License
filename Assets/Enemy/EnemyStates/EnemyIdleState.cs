@@ -18,6 +18,7 @@ public class EnemyIdleState : EnemyState
     {
         base.Enter();
         timePassed = 0;
+        enemy.SetVelocity(Vector3.zero);
     }
 
     public override void Exit()

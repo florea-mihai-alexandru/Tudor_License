@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: TestEnemyData
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   chaseDisThresh: 35
-  attackDisThresh: 15
+  attackDisThresh: 13
   wanderSpeed: 25
+  chaseSpeed: 40
   attackDuration: 0.5
   preWindupDuration: 1
+  AoE_Radius: 15
+  Damage: 1

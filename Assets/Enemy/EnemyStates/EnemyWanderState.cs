@@ -5,6 +5,7 @@ public class EnemyWanderState : EnemyState
 {
     protected float duration;
     protected float timePassed;
+    protected Vector3 randomDirection;
     public EnemyWanderState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName, float duration) : base(enemy, stateMachine, enemyData, animBoolName)
     {
         this.duration = duration;
@@ -14,6 +15,11 @@ public class EnemyWanderState : EnemyState
     {
         base.Enter();
         timePassed = 0;
+
+        float randomX = Random.Range(-1, 1);
+        float randomY = Random.Range(-1, 1);
+
+        randomDirection = new Vector3(randomX, 0, randomY);
     }
 
     public override void LogicUpdate()
@@ -21,17 +27,7 @@ public class EnemyWanderState : EnemyState
         base.LogicUpdate();
         timePassed += Time.deltaTime;
 
-        if (enemy.PlayerTransform != null) {
-            enemy.DesiredDestination = enemy.PlayerTransform.position;
-        }
-        enemy.EnemyNavMeshAgent.SetDestination(enemy.DesiredDestination);
-
-        Vector3 desired = enemy.EnemyNavMeshAgent.desiredVelocity;
-        Vector3 dir = desired.sqrMagnitude > 0.001f ? desired.normalized : Vector3.zero;
-
-        enemy.SetVelocity(dir * enemyData.wanderSpeed);
-
-        //Debug.Log(enemy.EnemyNavMeshAgent.desiredVelocity +  " desired vel");
+        enemy.SetVelocity(randomDirection * enemyData.wanderSpeed);
     }
 
     public override void PhysicsUpdate()

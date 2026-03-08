@@ -15,5 +15,9 @@ public class Computer_IdleState : EnemyIdleState
         {
             stateMachine.ChangeState((Cenemy.WanderState));
         }
+        if (enemy.distanceToPlayer() <= enemyData.chaseDisThresh)
+        {
+            stateMachine.ChangeState(Cenemy.ChaseState);
+        }
     }
 }

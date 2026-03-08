@@ -63,7 +63,8 @@ public class Player : MonoBehaviour
         PlayerSprite = playerSpriteTransform.GetComponent<SpriteRenderer>();
 
         PlayerHealthStats = GetComponent<HealthStats>();
-        Debug.Log("Player health stats: " + PlayerHealthStats.Health + "health " + PlayerHealthStats.MaxHealth);
+
+        //Debug.Log("Player health stats: " + PlayerHealthStats.Health + "health " + PlayerHealthStats.MaxHealth);
 
         StateMachine.Initialize(IdleState);
     }

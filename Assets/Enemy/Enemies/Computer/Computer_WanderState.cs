@@ -20,6 +20,10 @@ public class Computer_WanderState : EnemyWanderState
         {
             stateMachine.ChangeState(Cenemy.AttackState);
         }
+        if (enemy.distanceToPlayer() <= enemyData.chaseDisThresh)
+        {
+            stateMachine.ChangeState(Cenemy.ChaseState);
+        }
 
     }
 }
