@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c34f41b07f0a5074381e9181ec0d8ab2, type: 3}
   m_Name: Sword_1
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
-  <componentData>k__BackingField:
-  - rid: 2485487134401626220
+  <ComponentData>k__BackingField:
+  - rid: 2485487156027981915
   references:
     version: 2
     RefIds:
-    - rid: 2485487134401626220
+    - rid: 2485487156027981915
       type: {class: WeaponSpriteData, ns: , asm: Assembly-CSharp}
       data:
         <AttackData>k__BackingField:

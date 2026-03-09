@@ -4,11 +4,17 @@ public abstract class WeaponComponent : MonoBehaviour
 {
     protected Weapon weapon;
 
+    // TODO: Fix this when finishing weapon data
+    // protected AnimationEventHandler EventHandler => weapon.EventHandler;
+    protected WeaponAnimationEventHandler eventHandler;
+
     protected bool isAttackActive;
 
     protected virtual void Awake()
     {
         weapon = GetComponent<Weapon>();
+
+        eventHandler = GetComponentInChildren<WeaponAnimationEventHandler>();
     }
 
     protected virtual void HandleEnter()
