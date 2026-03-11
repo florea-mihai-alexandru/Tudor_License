@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour
     public Vector3 CurrentVelocity { get; private set; }
     public Vector3 FacingDirection { get; private set; }
     public Vector3 DesiredDestination { get; set; }
+    public Vector3 CurrentMoveDir { get; private set; }
     public Vector3 DesiredAttackPos { get; private set; }
     #endregion
 
@@ -39,12 +40,19 @@ public class Enemy : MonoBehaviour
     public LayerMask WhatIsOponent { get; private set; }
 
     [SerializeField]
+    private LayerMask npcLayerMask;
+
+    [SerializeField]
+    private LayerMask whatIsWall;
+
+    [SerializeField]
     public Transform attackPos;
     public Vector3 CentrePos {get; private set; }
 
     [SerializeField]
     private Transform navMeshTransform;
     public Vector3 NavMeshOffset { get; private set; }
+    public ContextSteering AI_ContextSteering { get; private set; }
     #endregion
 
 
@@ -78,10 +86,12 @@ public class Enemy : MonoBehaviour
         NavMeshOffset = navMeshTransform.position - transform.position;
 
         StateMachine = new EnemyStateMachine();
+        AI_ContextSteering = new ContextSteering(this, CentrePos, whatIsWall, npcLayerMask, 16);
     }
 
     public virtual void Update()
     {
+        AI_ContextSteering.centrePos = CentrePos;
         StateMachine.CurrentState.LogicUpdate();
     }
     public virtual void FixedUpdate()
@@ -149,20 +159,27 @@ public class Enemy : MonoBehaviour
     {
         EnemyNavMeshAgent.SetDestination(DesiredDestination);
         Vector3 desired = EnemyNavMeshAgent.desiredVelocity;
-        Vector3 dir = desired.sqrMagnitude > 0.001f ? desired.normalized : Vector3.zero;
+        Vector3 navDir = desired.sqrMagnitude > 0.001f ? desired.normalized : Vector3.zero;
+        Vector3 contextDir = AI_ContextSteering.GetDirection(navDir);
 
-        SetVelocity(dir * speed);
+        CurrentMoveDir = Vector3.Lerp(
+            CurrentMoveDir,
+            contextDir,
+            Time.deltaTime * 6f);
+
+        SetVelocity(CurrentMoveDir * speed);
     }
     #endregion
 
+    #region Check functions
     public bool CheckIfNavmeshArrived()
     {
         float dist = EnemyNavMeshAgent.remainingDistance;
         if (EnemyNavMeshAgent.remainingDistance <= EnemyNavMeshAgent.stoppingDistance)
             return true;
-        //Debug.Log("remining " + EnemyNavMeshAgent.remainingDistance + " stopping " + EnemyNavMeshAgent.stoppingDistance);
         return false;
     }
+    #endregion
 
     #region Draw functions
     public virtual void OnDrawGizmosSelected()
@@ -176,6 +193,41 @@ public class Enemy : MonoBehaviour
             Gizmos.color = Color.aliceBlue;
             Gizmos.DrawWireSphere(CentrePos, enemyData.chaseDisThresh);
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        if (AI_ContextSteering == null) return;
+
+        Vector3 origin = CentrePos;
+
+        var dirs = AI_ContextSteering.Directions;
+        var interest = AI_ContextSteering.Interest;
+        var danger = AI_ContextSteering.Danger;
+
+        for (int i = 0; i < dirs.Length; i++)
+        {
+            Vector3 worldDir = transform.TransformDirection(dirs[i]);
+
+            float interestLength = interest[i];
+            float dangerLength = danger[i];
+
+            // Interest (green)
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(origin, origin + worldDir * interestLength * 2f);
+
+            // Danger (red)
+            Gizmos.color = Color.red;
+            Gizmos.DrawLine(origin, origin + worldDir * dangerLength * 2f);
+        }
+
+        // Final chosen direction
+        Gizmos.color = Color.blue;
+        Vector3 finalDir = transform.TransformDirection(AI_ContextSteering.LastChosenDirection);
+        Gizmos.DrawLine(origin, origin + finalDir * 3f);
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(origin, AI_ContextSteering.NpcAvoidRadius);
     }
     #endregion
 

@@ -4,7 +4,7 @@ public class Computer_WanderState : EnemyWanderState
 {
     Computer_EN Cenemy;
 
-    public Computer_WanderState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName, Transform centerPoint) : base(enemy, stateMachine, enemyData, animBoolName, centerPoint)
+    public Computer_WanderState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName, PatrolPoint centerPoint) : base(enemy, stateMachine, enemyData, animBoolName, centerPoint)
     {
         this.Cenemy = (Computer_EN)enemy;     
     }

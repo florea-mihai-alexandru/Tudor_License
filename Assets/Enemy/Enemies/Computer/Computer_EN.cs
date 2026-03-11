@@ -8,11 +8,7 @@ public class Computer_EN : Enemy
     public Computer_ChaseState ChaseState { get; private set; }
 
     [SerializeField]
-    public Transform centerPatrolPoint;
-
-    /// <summary> TODO
-    ///  
-    /// </summary>
+    public PatrolPoint centerPatrolPoint;
 
     public override void Start()
     {

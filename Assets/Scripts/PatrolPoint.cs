@@ -2,15 +2,12 @@ using UnityEngine;
 
 public class PatrolPoint : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField]
+    public float patrolRadius = 30f;
+    public virtual void OnDrawGizmosSelected()
     {
-        
-    }
+        Gizmos.color = Color.limeGreen;
+        Gizmos.DrawWireSphere(transform.position, patrolRadius);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

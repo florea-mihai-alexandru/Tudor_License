@@ -7,8 +7,8 @@ public class EnemyWanderState : EnemyState
     protected float timePassed;
     protected Vector3 randomDirection;
 
-    public Transform centrePoint;
-    public EnemyWanderState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName, Transform centerPoint) : base(enemy, stateMachine, enemyData, animBoolName)
+    public PatrolPoint centrePoint;
+    public EnemyWanderState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName, PatrolPoint centerPoint) : base(enemy, stateMachine, enemyData, animBoolName)
     {
         this.centrePoint = centerPoint;
     }
@@ -36,40 +36,38 @@ public class EnemyWanderState : EnemyState
 
     public void NewDestination()
     {
-        Vector3 point;
         Vector3 centre;
+        float range;
         if (centrePoint == null)
         {
             centre = enemy.CentrePos;
+            range = enemyData.wanderingDistanceRange;
         }
         else
         {
-            centre = centrePoint.position;
+            centre = centrePoint.transform.position;
+            range = centrePoint.patrolRadius;
         }
 
-        if (RandomPoint(centre, enemyData.wanderingDistanceRange, out point)) 
+        if (RandomPoint(centre, range, out Vector3 point)) 
         {
             Debug.DrawRay(point, Vector3.up, Color.blue, 1.0f); 
             enemy.DesiredDestination = point;
         }
-        Debug.Log("rand point = " + point);
     }
 
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
 
-        Vector3 randomPoint = center + Random.insideUnitSphere * range; 
-        NavMeshHit hit;
-        Debug.Log(randomPoint + "random poin ");
-        //randomPoint.y = 0;
-        if (NavMesh.SamplePosition(randomPoint, out hit, enemyData.wanderingDistanceRange, NavMesh.AllAreas)) 
+        Vector3 randomPoint = center + Random.insideUnitSphere * range;
+
+        if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, range, NavMesh.AllAreas))
         {
             result = hit.position;
             return true;
         }
 
         result = Vector3.zero;
-        Debug.Log("False rand point ");
         return false;
     }
 }
