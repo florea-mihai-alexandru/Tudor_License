@@ -125,7 +125,6 @@ public class ContextSteering
             if (Physics.Raycast(centrePos, dir, WallCheckDistance, wallMask))
             {
                 danger[i] += 3f;
-                Debug.Log("wall");
             }
         }
     }
