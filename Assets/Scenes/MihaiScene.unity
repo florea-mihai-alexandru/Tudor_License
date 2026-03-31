@@ -190,6 +190,8 @@ MonoBehaviour:
     m_Bits: 64
   attackPos: {fileID: 1772612587}
   navMeshTransform: {fileID: 1590926078}
+  originalMass: 0
+  attackingMass: 0
   centerPatrolPoint: {fileID: 353713948}
 --- !u!135 &76275599
 SphereCollider:
@@ -794,6 +796,8 @@ MonoBehaviour:
     m_Bits: 64
   attackPos: {fileID: 624580225}
   navMeshTransform: {fileID: 1717201304}
+  originalMass: 0
+  attackingMass: 0
   centerPatrolPoint: {fileID: 353713948}
 --- !u!135 &184336392
 SphereCollider:
@@ -905,6 +909,8 @@ MonoBehaviour:
     m_Bits: 64
   attackPos: {fileID: 1239194288}
   navMeshTransform: {fileID: 1860791414}
+  originalMass: 0
+  attackingMass: 0
   centerPatrolPoint: {fileID: 353713948}
 --- !u!135 &189458629
 SphereCollider:
@@ -1224,6 +1230,8 @@ MonoBehaviour:
     m_Bits: 64
   attackPos: {fileID: 709678779}
   navMeshTransform: {fileID: 2004444807}
+  originalMass: 0
+  attackingMass: 0
   centerPatrolPoint: {fileID: 353713948}
 --- !u!135 &246474661
 SphereCollider:
@@ -2601,6 +2609,8 @@ MonoBehaviour:
     m_Bits: 64
   attackPos: {fileID: 892768576}
   navMeshTransform: {fileID: 1273312252}
+  originalMass: 0
+  attackingMass: 0
   centerPatrolPoint: {fileID: 353713948}
 --- !u!135 &670225965
 SphereCollider:
@@ -2712,6 +2722,8 @@ MonoBehaviour:
     m_Bits: 64
   attackPos: {fileID: 179997657}
   navMeshTransform: {fileID: 256967786}
+  originalMass: 0
+  attackingMass: 0
   centerPatrolPoint: {fileID: 353713948}
 --- !u!135 &708122481
 SphereCollider:
@@ -2854,6 +2866,8 @@ MonoBehaviour:
     m_Bits: 64
   attackPos: {fileID: 936513664}
   navMeshTransform: {fileID: 2003714071}
+  originalMass: 0
+  attackingMass: 0
   centerPatrolPoint: {fileID: 353713948}
 --- !u!135 &759969770
 SphereCollider:
@@ -2947,6 +2961,8 @@ MonoBehaviour:
     m_Bits: 64
   attackPos: {fileID: 983363222}
   navMeshTransform: {fileID: 1815257155}
+  originalMass: 0
+  attackingMass: 0
   centerPatrolPoint: {fileID: 353713948}
 --- !u!135 &779408134
 SphereCollider:
@@ -3313,6 +3329,8 @@ MonoBehaviour:
     m_Bits: 64
   attackPos: {fileID: 1955577273}
   navMeshTransform: {fileID: 1937411341}
+  originalMass: 0
+  attackingMass: 0
   centerPatrolPoint: {fileID: 353713948}
 --- !u!135 &1085771136
 SphereCollider:
@@ -3575,6 +3593,8 @@ MonoBehaviour:
     m_Bits: 64
   attackPos: {fileID: 1643166301}
   navMeshTransform: {fileID: 1485167240}
+  originalMass: 0
+  attackingMass: 0
   centerPatrolPoint: {fileID: 353713948}
 --- !u!54 &1150351894
 Rigidbody:
@@ -4154,6 +4174,8 @@ MonoBehaviour:
     m_Bits: 64
   attackPos: {fileID: 642516098}
   navMeshTransform: {fileID: 1154781529}
+  originalMass: 0
+  attackingMass: 0
   centerPatrolPoint: {fileID: 353713948}
 --- !u!135 &1508143636
 SphereCollider:
@@ -4659,6 +4681,8 @@ MonoBehaviour:
     m_Bits: 64
   attackPos: {fileID: 2105870734}
   navMeshTransform: {fileID: 1218888060}
+  originalMass: 0
+  attackingMass: 0
   centerPatrolPoint: {fileID: 353713948}
 --- !u!135 &1621763530
 SphereCollider:

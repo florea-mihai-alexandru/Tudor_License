@@ -53,6 +53,8 @@ public class Enemy : MonoBehaviour
     private Transform navMeshTransform;
     public Vector3 NavMeshOffset { get; private set; }
     public ContextSteering AI_ContextSteering { get; private set; }
+    public float originalMass;
+    public float attackingMass;
     #endregion
 
 
@@ -87,6 +89,9 @@ public class Enemy : MonoBehaviour
 
         StateMachine = new EnemyStateMachine();
         AI_ContextSteering = new ContextSteering(this, CentrePos, whatIsWall, npcLayerMask, 16);
+        
+        originalMass = RB.mass;
+        attackingMass = originalMass * 100f;
     }
 
     public virtual void Update()
@@ -120,6 +125,12 @@ public class Enemy : MonoBehaviour
         //Debug.Log((CenterPos - playerTransform.position).magnitude);
         return (CentrePos - playerTransform.position).magnitude;
     }
+
+    public Vector3 toPlayerVector()
+    {
+        return CentrePos - playerTransform.position;
+    }
+
     GameObject FindChildWithTag(GameObject parent, string tag)
     {
         GameObject child = null;

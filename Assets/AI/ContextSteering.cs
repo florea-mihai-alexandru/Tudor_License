@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class ContextSteering
 {
-    int directionCount = 24;
+    int directionCount = 32;
 
     private Vector3[] directions;
     private float[] interest;
     private float[] danger;
     private Vector3 lastChosenDir;
     private float inertiaWeight = 0.4f;
+    private float distToPlayer;
 
     public Vector3 centrePos { get; set; }
 
@@ -75,15 +76,25 @@ public class ContextSteering
     }
 
     void AddInterest(Vector3 navDir)
-    {
+    {  ///TODO FINISH CIRCLING
+        Vector3 toPlayer = enemy.toPlayerVector();
+        float dist = toPlayer.magnitude;
+        Vector3 dirToPlayer = toPlayer.normalized;
+        
+        Vector3 left = new Vector3(-dirToPlayer.z, 0, dirToPlayer.x);
+        Vector3 right = new Vector3(dirToPlayer.z, 0, -dirToPlayer.x);
+
+        float circleStrength = Mathf.InverseLerp(6f, 2f, dist);
+
         for (int i = 0; i < directionCount; i++)
-        {
+        {   
             float alignment = Vector3.Dot(directions[i], navDir);
             interest[i] = Mathf.Max(0, alignment);
 
             float inertia = Vector3.Dot(directions[i], lastChosenDir);
             interest[i] += Mathf.Max(0, inertia) * inertiaWeight;
         }
+
     }
 
     void AddNpcDanger()

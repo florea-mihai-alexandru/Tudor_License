@@ -12,6 +12,7 @@ public class EnemyAttackState : EnemyState
 
     protected float attackDuration;
     protected float preWindupDuration;
+
     public EnemyAttackState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName) : base(enemy, stateMachine, enemyData, animBoolName)
     {
         attackDuration = enemyData.attackDuration;
@@ -22,6 +23,7 @@ public class EnemyAttackState : EnemyState
     {
         base.Enter();
         enemy.SetVelocity(Vector3.zero);
+        enemy.RB.mass = enemy.attackingMass;
 
         preWindup = true;
         attackDone = false;
@@ -34,6 +36,7 @@ public class EnemyAttackState : EnemyState
     public override void Exit()
     {
         base.Exit();
+        enemy.RB.mass = enemy.originalMass;
     }
 
     public override void LogicUpdate()
