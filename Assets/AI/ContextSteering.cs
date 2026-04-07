@@ -10,6 +10,7 @@ public class ContextSteering
     private Vector3 lastChosenDir;
     private float inertiaWeight = 0.4f;
     private float distToPlayer;
+    private float forwardBlock;
 
     public Vector3 centrePos { get; set; }
 
@@ -57,16 +58,18 @@ public class ContextSteering
     {
         ClearMaps();
 
+        ComputeForwardDanger(navDirection);
+
         AddInterest(navDirection);
         AddNpcDanger();
         AddWallDanger();
 
         PropagateDanger();
-
+         
         return ChooseDirection();
     }
 
-    void ClearMaps()
+    private void ClearMaps()
     {
         for (int i = 0; i < directionCount; i++)
         {
@@ -75,8 +78,27 @@ public class ContextSteering
         }
     }
 
-    void AddInterest(Vector3 navDir)
+    private void ComputeForwardDanger(Vector3 navDir)
+    {
+        float forwardDanger = 0f;
+
+        for (int i = 0; i < directionCount; i++)
+        {
+            float alignment = Vector3.Dot(directions[i], navDir);
+
+            if (alignment > 0.7f) // forward cone
+            {
+                forwardDanger += danger[i];
+            }
+        }
+
+        forwardBlock =  Mathf.Clamp01(forwardDanger);
+    }
+
+    private void AddInterest(Vector3 navDir)
     {  ///TODO FINISH CIRCLING
+       ///UPDATE: Forgot what I had to finish, been a month..
+       ///
         Vector3 toPlayer = enemy.toPlayerVector();
         float dist = toPlayer.magnitude;
         Vector3 dirToPlayer = toPlayer.normalized;
@@ -86,18 +108,31 @@ public class ContextSteering
 
         float circleStrength = Mathf.InverseLerp(6f, 2f, dist);
 
+        // boost circling when blocked
+        circleStrength *= (0.5f + forwardBlock);
+
         for (int i = 0; i < directionCount; i++)
-        {   
+        {
             float alignment = Vector3.Dot(directions[i], navDir);
-            interest[i] = Mathf.Max(0, alignment);
+
+            float forwardWeight = Mathf.Lerp(1f, 0.4f, circleStrength);
+
+            interest[i] = Mathf.Max(0, alignment) * forwardWeight;
 
             float inertia = Vector3.Dot(directions[i], lastChosenDir);
             interest[i] += Mathf.Max(0, inertia) * inertiaWeight;
+           
+            float leftAlign = Vector3.Dot(directions[i], left);
+            float rightAlign = Vector3.Dot(directions[i], right);
+
+            float sideInterest = Mathf.Max(leftAlign, rightAlign);
+
+            interest[i] += sideInterest * circleStrength * 0.6f;
         }
 
     }
 
-    void AddNpcDanger()
+    private void AddNpcDanger()
     {
         int count = Physics.OverlapSphereNonAlloc(centrePos, NpcAvoidRadius, npcBuffer, npcMask);
         for (int n = 0; n < count; n++)
@@ -105,9 +140,11 @@ public class ContextSteering
             Collider npc = npcBuffer[n];
             if (npc.transform == agent) continue;
             Enemy other = npc.GetComponent<Enemy>();
-
+            
+            bool attacking = false;
+            
             if (other != null && other.StateMachine.CurrentState is EnemyAttackState)
-                continue;
+                attacking = true;
 
             Vector3 toNpc = npc.transform.position - centrePos;
             float dist = toNpc.magnitude;
@@ -121,12 +158,23 @@ public class ContextSteering
                 float alignment = Vector3.Dot(directions[i], npcDir);
 
                 float dangerValue = Mathf.Max(0, alignment) * (NpcAvoidRadius / dist);
+                
+                float attackInfluence = 1f;
+
+                if (attacking)
+                {
+                    attackInfluence = Mathf.Lerp(0.2f, 0.6f, dist / NpcAvoidRadius);
+                }
+
+                dangerValue *= attackInfluence;
+
                 danger[i] += Mathf.Min(dangerValue * 0.6f, 2f);
+                danger[i] = Mathf.Min(danger[i], 3f);
             }
         }
     }
 
-    void AddWallDanger()
+    private void AddWallDanger()
     {
         for (int i = 0; i < directionCount; i++)
         {
@@ -140,7 +188,7 @@ public class ContextSteering
         }
     }
 
-    void PropagateDanger()
+    private void PropagateDanger()
     {
         float[] propagated = new float[directionCount];
 
@@ -165,7 +213,7 @@ public class ContextSteering
         }
     }
 
-    Vector3 ChooseDirection()
+    private Vector3 ChooseDirection()
     {
         float bestScore = -Mathf.Infinity;
         Vector3 bestDir = Vector3.zero;
@@ -173,6 +221,9 @@ public class ContextSteering
         for (int i = 0; i < directionCount; i++)
         {
             float score = interest[i] - danger[i];
+
+            //Debug.Log("Name: " + enemy.name + "Interest: " + interest[i] + "Danger: " + danger[i] + "Score: " + score);
+
             if (score > bestScore)
             {
                 bestScore = score;

@@ -31,4 +31,22 @@ public class Computer_EN : Enemy
     {
         base.Update();
     }
+
+    public override void performAttack()
+    {
+        base.performAttack();
+        /// radius of sphere
+        Collider[] oponentsToDamage = Physics.OverlapSphere(attackPos.position, enemyData.AoE_Radius, WhatIsOponent);
+        foreach (Collider enemy in oponentsToDamage)
+        {
+            Vector3 dirToEnemy = (enemy.transform.position - transform.position).normalized;
+
+            HealthStats oponentScript = enemy.GetComponentInChildren<HealthStats>();
+            if (oponentScript != null)
+            {
+                Debug.Log("TOOK DAMAGE");
+                oponentScript.TakeDamage(1);
+            }
+        }
+    }
 }
