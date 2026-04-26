@@ -12,25 +12,49 @@ public class WeaponDataSOEditor : Editor
 
     private WeaponDataSO dataSO;
 
-    private void OnEnable()
-    {
-        dataSO = target as WeaponDataSO;
-    }
+    private bool showForceUpdateButtons;
+    private bool showAddComponentButtons;
 
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
-        foreach (var dataCompType in dataCompTypes)
-        {
-            if (GUILayout.Button(dataCompType.Name))
-            {
-                var comp = Activator.CreateInstance(dataCompType) as ComponentData;
+        showAddComponentButtons = EditorGUILayout.Foldout(showAddComponentButtons, "Add Components");
 
-                if (comp == null)
-                    return;
-                
-                dataSO.AddData(comp);
+        if (showAddComponentButtons)
+        {
+            foreach (var dataCompType in dataCompTypes)
+            {
+                if (GUILayout.Button(dataCompType.Name))
+                {
+                    var comp = Activator.CreateInstance(dataCompType) as ComponentData;
+
+                    if (comp == null)
+                        return;
+
+                    dataSO.AddData(comp);
+                }
+            }
+        }
+
+        showForceUpdateButtons = EditorGUILayout.Foldout(showForceUpdateButtons, "Force Update Buttons");
+
+        if (showForceUpdateButtons)
+        {
+            if (GUILayout.Button("Force Update Component Names"))
+            {
+                foreach (var item in dataSO.ComponentData)
+                {
+                    item.SetComponentName();
+                }
+            }
+
+            if (GUILayout.Button("Force Update Attack Names"))
+            {
+                foreach (var item in dataSO.ComponentData)
+                {
+                    item.SetAttackDataNames();
+                }
             }
         }
     }

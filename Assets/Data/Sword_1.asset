@@ -14,19 +14,34 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
   <ComponentData>k__BackingField:
   - rid: 2485487156027981915
+  - rid: 5994534311668219904
   references:
     version: 2
     RefIds:
     - rid: 2485487156027981915
       type: {class: WeaponSpriteData, ns: , asm: Assembly-CSharp}
       data:
-        <AttackData>k__BackingField:
+        attackData:
         - <Sprites>k__BackingField:
-          - {fileID: 21300000, guid: eecd29ffd318d9945b45823480dd8771, type: 3}
-          - {fileID: 21300000, guid: 64c767b46c1c9a04c880443c5bab73ea, type: 3}
-          - {fileID: 21300000, guid: d7c968ec977fcc940b8154230dc365db, type: 3}
-          - {fileID: 21300000, guid: 3151f00735953aa478ca78d6a5c2ef59, type: 3}
-          - {fileID: 21300000, guid: d1d098373d5b8a64e8a18dc8b9e782a5, type: 3}
-          - {fileID: 21300000, guid: d484a020908a9874ba9ab5c05b485f57, type: 3}
-          - {fileID: 21300000, guid: 1cf2c33620aec8449a970274b4a5bf25, type: 3}
-          - {fileID: 21300000, guid: e94dfc9deccbd6641acefc0eb469d059, type: 3}
+          - {fileID: 21300000, guid: e3674fb7514aae7408292fed2a4baf90, type: 3}
+          - {fileID: 21300000, guid: b76806f5840a869478c45fa37bdb5c7d, type: 3}
+          - {fileID: 21300000, guid: 3bce332393b369c4d80d18cdd99536e1, type: 3}
+          - {fileID: 21300000, guid: dc66749af2bc07046a52307e477db85f, type: 3}
+          - {fileID: 21300000, guid: b3aae3fc192906745b4d410cdd663df0, type: 3}
+          - {fileID: 21300000, guid: 0f068965281a8ac4ebb5fd90809c32f9, type: 3}
+          - {fileID: 21300000, guid: 2075a23ba2e8f2e48a33af50b1cb8d0f, type: 3}
+          - {fileID: 21300000, guid: 6d365838bac6e554a9abfbdfbf759e5d, type: 3}
+    - rid: 5994534311668219904
+      type: {class: ActionHitBoxData, ns: , asm: Assembly-CSharp}
+      data:
+        attackData:
+        - Debug: 1
+          <HitBox>k__BackingField:
+            serializedVersion: 2
+            x: 0
+            y: 0
+            width: 8.09
+            height: 4.09
+        <DetectableLayers>k__BackingField:
+          serializedVersion: 2
+          m_Bits: 0
