@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - AttackPos
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -13,10 +14,13 @@ TagManager:
   - Water
   - UI
   - Wall
+  - Enemy
   - 
   - NPC
   - 
   - Player
+  - 
+  - MousePlane
   - 
   - 
   - 

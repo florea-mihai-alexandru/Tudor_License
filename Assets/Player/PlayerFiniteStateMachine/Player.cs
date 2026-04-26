@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
 
     public PlayerDashState DashState { get; private set; }
 
+    public PlayerAttackState AttackState {  get; private set; }
+
     [SerializeField]
     private PlayerData playerData;
 
@@ -27,6 +29,9 @@ public class Player : MonoBehaviour
     public Animator Anim { get; private set; }
     public Rigidbody RB { get; private set; }
     public PlayerInputManager PlayerInput { get; private set; }
+
+    public WeaponParent WeaponParent { get; private set; }
+
     public TrailRenderer DashTrail { get; private set; }
     public SpriteRenderer PlayerSprite { get; private set; }
     public HealthStats PlayerHealthStats { get; private set; }
@@ -35,6 +40,9 @@ public class Player : MonoBehaviour
 
     #region Other variables
     public Vector3 CurrentVelocity { get; private set; }
+    //[SerializeField] public GameHandler gameHandler;
+
+    private Weapon weapon;
 
     [SerializeField]
     private Transform playerSpriteTransform;
@@ -44,10 +52,13 @@ public class Player : MonoBehaviour
     #region Unity Callback Functions
     private void Awake()
     {
+        weapon = transform.Find("Weapon").GetComponent<Weapon>();
+
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
         DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
+        AttackState = new PlayerAttackState(this, StateMachine, playerData, "empty", weapon);
     }
 
     private void Start()
@@ -55,6 +66,7 @@ public class Player : MonoBehaviour
         Anim = GetComponentInChildren<Animator>();
         PlayerInput = GetComponent<PlayerInputManager>();
         RB = GetComponent<Rigidbody>();
+        WeaponParent = GetComponentInChildren<WeaponParent>();
 
         DashTrail = GetComponentInChildren<TrailRenderer>();
         if (DashTrail != null) 
@@ -73,6 +85,8 @@ public class Player : MonoBehaviour
     {
         CurrentVelocity = RB.linearVelocity;
         StateMachine.CurrentState.LogicUpdate();
+
+        //WeaponParent.PointerPosition = gameHandler.MouseScreenCoords;
     }
 
     private void FixedUpdate()
