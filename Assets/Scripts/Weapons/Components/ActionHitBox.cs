@@ -1,32 +1,29 @@
 using System;
 using UnityEngine;
 
+[ExecuteAlways]
 public class ActionHitBox : WeaponComponent<ActionHitBoxData, AttackActionHitBox>
 {
-    private event Action<Collider[]> OnDetectedCollider;
+    public event Action<Collider[]> OnDetectedCollider;
 
     private Vector3 offset;
-
     private Collider[] detected;
+
     private void HandleAttackAction()
     {
-        offset.Set(
-            transform.position.x + (currentAttackData.HitBox.center.x),
-            transform.position.y + currentAttackData.HitBox.center.y,
-            transform.position.z
-            );
+        offset = transform.position + currentAttackData.HitBoxCenter;
 
-        detected = Physics.OverlapBox(offset, currentAttackData.HitBox.size / 2f, Quaternion.identity, data.DetectableLayers);
+        detected = Physics.OverlapBox(
+            offset,
+            currentAttackData.HitBoxSize / 2f,
+            transform.rotation,          
+            data.DetectableLayers
+        );
 
         if (detected.Length == 0)
             return;
 
         OnDetectedCollider?.Invoke(detected);
-
-        foreach (var item in detected)
-        {
-            Debug.Log(item.name);
-        }
     }
 
     protected override void OnEnable()
@@ -43,15 +40,22 @@ public class ActionHitBox : WeaponComponent<ActionHitBoxData, AttackActionHitBox
 
     private void OnDrawGizmosSelected()
     {
-        if (data == null)
-            return;
+        var gizmoData = data ?? GetComponent<ActionHitBoxData>();
 
-        foreach (var item in data.AttackData)
+        if (gizmoData == null) return;
+
+        foreach (var item in gizmoData.AttackData)
         {
-            if (!item.Debug)
-                continue;
+            if (!item.Debug) continue;
 
-            Gizmos.DrawWireCube(transform.position + (Vector3)item.HitBox.center, item.HitBox.size);
+            Gizmos.matrix = Matrix4x4.TRS(
+                transform.position + item.HitBoxCenter,
+                transform.rotation,
+                Vector3.one
+            );
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireCube(Vector3.zero, item.HitBoxSize);
+            Gizmos.matrix = Matrix4x4.identity; 
         }
     }
 }

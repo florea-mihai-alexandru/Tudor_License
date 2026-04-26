@@ -12,6 +12,11 @@ public class WeaponDataSOEditor : Editor
 
     private WeaponDataSO dataSO;
 
+    private void OnEnable()
+    {
+        dataSO = (WeaponDataSO)target;
+    }
+
     private bool showForceUpdateButtons;
     private bool showAddComponentButtons;
 

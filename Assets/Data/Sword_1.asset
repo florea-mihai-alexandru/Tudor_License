@@ -15,33 +15,39 @@ MonoBehaviour:
   <ComponentData>k__BackingField:
   - rid: 2485487156027981915
   - rid: 5994534311668219904
+  - rid: 7282200253688709194
   references:
     version: 2
     RefIds:
     - rid: 2485487156027981915
       type: {class: WeaponSpriteData, ns: , asm: Assembly-CSharp}
       data:
+        name: WeaponSpriteData
         attackData:
-        - <Sprites>k__BackingField:
-          - {fileID: 21300000, guid: e3674fb7514aae7408292fed2a4baf90, type: 3}
-          - {fileID: 21300000, guid: b76806f5840a869478c45fa37bdb5c7d, type: 3}
-          - {fileID: 21300000, guid: 3bce332393b369c4d80d18cdd99536e1, type: 3}
-          - {fileID: 21300000, guid: dc66749af2bc07046a52307e477db85f, type: 3}
-          - {fileID: 21300000, guid: b3aae3fc192906745b4d410cdd663df0, type: 3}
-          - {fileID: 21300000, guid: 0f068965281a8ac4ebb5fd90809c32f9, type: 3}
-          - {fileID: 21300000, guid: 2075a23ba2e8f2e48a33af50b1cb8d0f, type: 3}
-          - {fileID: 21300000, guid: 6d365838bac6e554a9abfbdfbf759e5d, type: 3}
+        - name: 
+          <Sprites>k__BackingField:
+          - {fileID: 21300000, guid: ba9e50df879766046af655aff531cbba, type: 3}
+          - {fileID: 21300000, guid: b7d5951c221acb443b57dba55b8d9c64, type: 3}
+          - {fileID: 21300000, guid: 862635dc74cec574cbb59cf9f58a3adf, type: 3}
+          - {fileID: 21300000, guid: 7c6fb608ec34b5e4c93844057554097f, type: 3}
+          - {fileID: 21300000, guid: b455e78fff478e34a88a026e266e2205, type: 3}
+          - {fileID: 21300000, guid: 092865ce8ce7dca4a89ca194576c0e4f, type: 3}
     - rid: 5994534311668219904
       type: {class: ActionHitBoxData, ns: , asm: Assembly-CSharp}
       data:
+        name: ActionHitBoxData
         attackData:
-        - Debug: 1
-          <HitBox>k__BackingField:
-            serializedVersion: 2
-            x: 0
-            y: 0
-            width: 8.09
-            height: 4.09
+        - name: 
+          Debug: 1
+          <HitBoxCenter>k__BackingField: {x: 3, y: 0, z: 0}
+          <HitBoxSize>k__BackingField: {x: 8, y: 6, z: 3}
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
-          m_Bits: 0
+          m_Bits: 64
+    - rid: 7282200253688709194
+      type: {class: DamageData, ns: , asm: Assembly-CSharp}
+      data:
+        name: DamageData
+        attackData:
+        - name: 
+          <Amount>k__BackingField: 10
