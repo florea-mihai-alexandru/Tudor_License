@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c34f41b07f0a5074381e9181ec0d8ab2, type: 3}
+  m_Name: Sword_1
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponDataSO
+  <ComponentData>k__BackingField:
+  - rid: 2485487156027981915
+  - rid: 5994534311668219904
+  - rid: 7282200253688709194
+  references:
+    version: 2
+    RefIds:
+    - rid: 2485487156027981915
+      type: {class: WeaponSpriteData, ns: , asm: Assembly-CSharp}
+      data:
+        name: WeaponSpriteData
+        attackData:
+        - name: 
+          <Sprites>k__BackingField:
+          - {fileID: 21300000, guid: ba9e50df879766046af655aff531cbba, type: 3}
+          - {fileID: 21300000, guid: b7d5951c221acb443b57dba55b8d9c64, type: 3}
+          - {fileID: 21300000, guid: 862635dc74cec574cbb59cf9f58a3adf, type: 3}
+          - {fileID: 21300000, guid: 7c6fb608ec34b5e4c93844057554097f, type: 3}
+          - {fileID: 21300000, guid: b455e78fff478e34a88a026e266e2205, type: 3}
+          - {fileID: 21300000, guid: 092865ce8ce7dca4a89ca194576c0e4f, type: 3}
+    - rid: 5994534311668219904
+      type: {class: ActionHitBoxData, ns: , asm: Assembly-CSharp}
+      data:
+        name: ActionHitBoxData
+        attackData:
+        - name: 
+          Debug: 1
+          <HitBoxCenter>k__BackingField: {x: 3, y: 0, z: 0}
+          <HitBoxSize>k__BackingField: {x: 8, y: 6, z: 3}
+        <DetectableLayers>k__BackingField:
+          serializedVersion: 2
+          m_Bits: 64
+    - rid: 7282200253688709194
+      type: {class: DamageData, ns: , asm: Assembly-CSharp}
+      data:
+        name: DamageData
+        attackData:
+        - name: 
+          <Amount>k__BackingField: 10
