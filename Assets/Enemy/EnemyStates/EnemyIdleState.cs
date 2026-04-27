@@ -1,12 +1,11 @@
 using UnityEngine;
 
-public class EnemyNormalState : EnemyState
+public class EnemyIdleState : EnemyState
 {
-    protected float duration;
     protected float timePassed;
-    public EnemyNormalState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName, float duration) : base(enemy, stateMachine, enemyData, animBoolName)
+    public EnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName) : base(enemy, stateMachine, enemyData, animBoolName)
     {
-        this.duration = duration;
+
     }
 
     public override void DoChecks()
@@ -18,6 +17,7 @@ public class EnemyNormalState : EnemyState
     {
         base.Enter();
         timePassed = 0;
+        enemy.SetVelocity(Vector3.zero);
     }
 
     public override void Exit()

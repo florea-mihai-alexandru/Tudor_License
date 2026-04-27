@@ -23,7 +23,7 @@ public class EnemyState
         enemy.Anim.SetBool(animBoolName, true);
         startTime = Time.time;
 
-        Debug.Log(animBoolName + "Enemy Anim");
+        //Debug.Log(animBoolName + " Enemy Anim");
     }
 
     public virtual void Exit()

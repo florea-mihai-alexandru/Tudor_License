@@ -23,16 +23,28 @@ public class PlayerDashState : PlayerAilityState
         if (player.CheckIfShouldFlip()) 
             player.PlayerSprite.flipX = true;
 
-        player.SetVelocity(player.GetLookDir() * playerData.playerSpeed * 3);
+        Physics.IgnoreLayerCollision(
+            player.gameObject.layer,
+            //LayerMask.NameToLayer("Player"),
+            LayerMask.NameToLayer("NPC"),
+            true
+            );
+
+        player.SetVelocity(player.GetLookDir() * playerData.dashPower);
     }
 
     public override void Exit()
     {
         base.Exit();
 
+        Physics.IgnoreLayerCollision(
+            player.gameObject.layer,
+            LayerMask.NameToLayer("NPC"),
+            false
+            );
+
         if (player.DashTrail != null)
             player.DashTrail.enabled = false;
-        //player.SetVelocity(Vector3.zero);
     }
 
     public override void LogicUpdate()

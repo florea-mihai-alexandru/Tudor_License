@@ -3,17 +3,22 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
+  tags:
+  - AttackPos
   tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Floor
   - Water
   - UI
+  - Wall
   - Enemy
   - 
+  - NPC
   - 
+  - Player
   - 
   - MousePlane
   - 
