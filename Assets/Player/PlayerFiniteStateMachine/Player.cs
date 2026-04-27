@@ -47,6 +47,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Transform playerSpriteTransform;
 
+    public Vector3 LastMoveDirection { get; private set; } = Vector3.right;
+
     #endregion
 
     #region Unity Callback Functions
@@ -54,11 +56,13 @@ public class Player : MonoBehaviour
     {
         weapon = transform.Find("Weapon").GetComponent<Weapon>();
 
+        var actionHitBox = GetComponentInChildren<ActionHitBox>();
+
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
         DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
-        AttackState = new PlayerAttackState(this, StateMachine, playerData, "empty", weapon);
+        AttackState = new PlayerAttackState(this, StateMachine, playerData, "empty", weapon, actionHitBox);
     }
 
     private void Start()
@@ -84,6 +88,11 @@ public class Player : MonoBehaviour
     private void Update()
     {
         CurrentVelocity = RB.linearVelocity;
+
+        Vector3 moveDir = new Vector3(PlayerInput.MoveInput.x, 0f, PlayerInput.MoveInput.y).normalized;
+        if (moveDir != Vector3.zero)
+            LastMoveDirection = moveDir;
+
         StateMachine.CurrentState.LogicUpdate();
 
         //WeaponParent.PointerPosition = gameHandler.MouseScreenCoords;
