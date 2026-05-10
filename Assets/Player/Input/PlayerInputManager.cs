@@ -1,3 +1,4 @@
+using System;
 using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +11,9 @@ public class PlayerInputManager : MonoBehaviour
     public bool AttackInput { get; private set; }
     public bool InteractionInput {  get; private set; }
     public bool BlockInput { get; private set; }
+
+    public bool LeftWeaponSwitch { get; private set; }
+    public bool RightWeaponSwitch { get; private set; }
 
     public void OnMoveInput(InputAction.CallbackContext context)
     {
@@ -29,7 +33,25 @@ public class PlayerInputManager : MonoBehaviour
             DashInput = true;
     }
 
+    public void OnWeaponLeftInput(InputAction.CallbackContext context)
+    {
+        if (context.started){
+            LeftWeaponSwitch = true;
+            //Debug.Log("LEFT");
+        }
+
+    }
+
+    public void OnWeaponRightInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            RightWeaponSwitch = true;
+    }
+
     public void DashUsed() => DashInput = false;
     public void AttackUsed() => AttackInput = false;
+    public void LeftWeaponUsed() => LeftWeaponSwitch = false;
+    public void RightWeaponUsed() => RightWeaponSwitch = false;
+
 }
 
