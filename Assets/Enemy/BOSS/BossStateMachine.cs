@@ -13,7 +13,7 @@ public class BossStateMachine : MonoBehaviour
     public BossState CurrentState { get; private set; }
 
     [Header("Enemy Spawn")]
-    public GameObject enemyPrefab;
+    public Enemy enemyPrefab;
     public Transform[] spawnPoints;
 
     [Header("Boss Settings")]
@@ -24,9 +24,11 @@ public class BossStateMachine : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
 
-    private List<GameObject> aliveEnemies = new List<GameObject>();
+    private List<Enemy> aliveEnemies = new List<Enemy>();
 
     private float stunTimer;
+
+    public Transform playerTransform;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -64,8 +66,9 @@ public class BossStateMachine : MonoBehaviour
         {
             Transform spawn = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
-            GameObject enemy = Instantiate(enemyPrefab, spawn.position, Quaternion.identity);
-
+            Enemy enemy = Instantiate(enemyPrefab, spawn.position, Quaternion.identity);
+           
+            enemy.PlayerTransform = playerTransform;
             aliveEnemies.Add(enemy);
         }
 

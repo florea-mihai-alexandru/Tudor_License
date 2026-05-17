@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Computer_EN
   enemyData: {fileID: 11400000, guid: b771086c684f1784abe9beabc13d4d21, type: 2}
-  playerTransform: {fileID: 4992592399927713082, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
+  playerTransform: {fileID: 0}
   whatIsOponent:
     serializedVersion: 2
     m_Bits: 2048

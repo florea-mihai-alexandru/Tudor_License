@@ -4,7 +4,7 @@
 
 using UnityEngine;
 
-public class HealthStats : MonoBehaviour
+public class HealthStats : MonoBehaviour, IDamageable
 {
     public delegate void OnHealthChangedDelegate();
     public OnHealthChangedDelegate onHealthChangedCallback;
@@ -59,5 +59,12 @@ public class HealthStats : MonoBehaviour
 
         if (onHealthChangedCallback != null)
             onHealthChangedCallback.Invoke();
+    }
+
+    public void Damage(float amount)
+    {
+        Debug.Log("werghjnwgg");
+        TakeDamage(amount);
+
     }
 }
