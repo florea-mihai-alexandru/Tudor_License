@@ -30,6 +30,7 @@ public class PlayerDashState : PlayerAilityState
             true
             );
 
+        player.PlayerHealthStats.canTakeDamage = false;
         player.SetVelocity(player.GetLookDir() * playerData.dashPower);
     }
 
@@ -45,6 +46,8 @@ public class PlayerDashState : PlayerAilityState
 
         if (player.DashTrail != null)
             player.DashTrail.enabled = false;
+        
+        player.PlayerHealthStats.canTakeDamage = true;
     }
 
     public override void LogicUpdate()

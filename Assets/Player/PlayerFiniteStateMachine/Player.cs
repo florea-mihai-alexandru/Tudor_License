@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
     public PlayerDashState DashState { get; private set; }
 
     public PlayerAttackState AttackState {  get; private set; }
+    public PlayerDeathState DeathState { get; private set; }
 
     [SerializeField]
     private PlayerData playerData;
@@ -47,6 +48,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Transform playerSpriteTransform;
 
+    public bool isDead = false;
+
     #endregion
 
     #region Unity Callback Functions
@@ -59,6 +62,7 @@ public class Player : MonoBehaviour
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
         DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
         AttackState = new PlayerAttackState(this, StateMachine, playerData, "empty", weapon);
+        DeathState = new PlayerDeathState(this, StateMachine, playerData, "death", 2f);
     }
 
     private void Start()
@@ -79,11 +83,16 @@ public class Player : MonoBehaviour
         //Debug.Log("Player health stats: " + PlayerHealthStats.Health + "health " + PlayerHealthStats.MaxHealth);
 
         StateMachine.Initialize(IdleState);
+
+        //PlayerHealthStats.canTakeDamage = false; //TODO REMOVE
     }
 
     private void Update()
     {
         CurrentVelocity = RB.linearVelocity;
+        if (PlayerHealthStats.health <= 0)
+            isDead = true;
+
         StateMachine.CurrentState.LogicUpdate();
 
         //WeaponParent.PointerPosition = gameHandler.MouseScreenCoords;

@@ -131,7 +131,9 @@ GameObject:
   - component: {fileID: 253528090}
   - component: {fileID: 253528089}
   - component: {fileID: 253528088}
-  m_Layer: 0
+  - component: {fileID: 253528092}
+  - component: {fileID: 253528091}
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +150,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -6.22, z: 0}
-  m_LocalScale: {x: 7.4011, y: 6.7001, z: 1.8705}
+  m_LocalScale: {x: 7.4011, y: 6.7001, z: 6.9417996}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1419369303}
@@ -233,6 +235,34 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 253528086}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &253528091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253528086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a026678b3aa62db458a1a1f8fd8877bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
+--- !u!114 &253528092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253528086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0b64c0b1dccc64d91eee52d85267bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthStats
+  health: 3
+  maxHealth: 3
+  maxTotalHealth: 3
+  canTakeDamage: 1
 --- !u!1001 &255815543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -296,13 +326,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3109272920896415840, guid: 28c7c36ac77c94a44ae7732603da42b3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1487325489}
-    - targetCorrespondingSourceObject: {fileID: 3109272920896415840, guid: 28c7c36ac77c94a44ae7732603da42b3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1487325490}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28c7c36ac77c94a44ae7732603da42b3, type: 3}
 --- !u!1 &264285838
 GameObject:
@@ -767,13 +791,13 @@ GameObject:
   m_Component:
   - component: {fileID: 1419369303}
   - component: {fileID: 1419369302}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BOSS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1419369302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -794,8 +818,9 @@ MonoBehaviour:
   - {fileID: 2041424730}
   enemiesPerWave: 3
   stunDuration: 5
-  maxHealth: 100
   playerTransform: {fileID: 316313748}
+  healthStats: {fileID: 0}
+  deathDuratoion: 3
 --- !u!4 &1419369303
 Transform:
   m_ObjectHideFlags: 0
@@ -812,38 +837,6 @@ Transform:
   - {fileID: 253528087}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1487325484 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3109272920896415840, guid: 28c7c36ac77c94a44ae7732603da42b3, type: 3}
-  m_PrefabInstance: {fileID: 255815543}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1487325489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1487325484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec0b64c0b1dccc64d91eee52d85267bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HealthStats
-  health: 3
-  maxHealth: 3
-  maxTotalHealth: 3
---- !u!114 &1487325490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1487325484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a026678b3aa62db458a1a1f8fd8877bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DamageReceiver
 --- !u!1 &1587593175
 GameObject:
   m_ObjectHideFlags: 0

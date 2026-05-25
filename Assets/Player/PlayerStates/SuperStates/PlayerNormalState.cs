@@ -40,6 +40,11 @@ public class PlayerNormalState : PlayerState
             stateMachine.ChangeState(player.AttackState);
             player.PlayerInput.AttackUsed();
         }
+
+        if (player.isDead)
+        {
+            stateMachine.ChangeState(player.DeathState);
+        }
     }
 
     public override void PhysicsUpdate()

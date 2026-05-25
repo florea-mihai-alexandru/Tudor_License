@@ -19,11 +19,13 @@ public class HealthStats : MonoBehaviour, IDamageable
     #endregion
 
     [SerializeField]
-    private float health;
+    public float health;
     [SerializeField]
     private float maxHealth;
     [SerializeField]
     private float maxTotalHealth;
+
+    public bool canTakeDamage = true;
 
     public float Health { get { return health; } }
     public float MaxHealth { get { return maxHealth; } }
@@ -37,8 +39,11 @@ public class HealthStats : MonoBehaviour, IDamageable
 
     public void TakeDamage(float dmg)
     {
-        health -= dmg;
-        ClampHealth();
+        if (canTakeDamage)
+        {
+            health -= dmg;
+            ClampHealth();
+        }
     }
 
     public void AddHealth()

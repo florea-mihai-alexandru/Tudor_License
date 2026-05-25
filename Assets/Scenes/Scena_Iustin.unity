@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 219722642}
   - component: {fileID: 219722641}
   - component: {fileID: 219722646}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Test Dummy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,9 +439,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec0b64c0b1dccc64d91eee52d85267bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthStats
-  health: 0
-  maxHealth: 0
-  maxTotalHealth: 0
+  health: 5
+  maxHealth: 5
+  maxTotalHealth: 5
 --- !u!1 &389900874
 GameObject:
   m_ObjectHideFlags: 0

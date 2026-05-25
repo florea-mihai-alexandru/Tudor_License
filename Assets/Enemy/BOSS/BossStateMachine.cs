@@ -7,7 +7,8 @@ public class BossStateMachine : MonoBehaviour
     {
         Stunned,
         SpawningEnemies,
-        WaitingForEnemies
+        WaitingForEnemies,
+        Dying
     }
 
     public BossState CurrentState { get; private set; }
@@ -20,26 +21,29 @@ public class BossStateMachine : MonoBehaviour
     public int enemiesPerWave = 3;
     public float stunDuration = 5f;
 
-    [Header("Boss HP")]
-    public int maxHealth = 100;
-    private int currentHealth;
-
     private List<Enemy> aliveEnemies = new List<Enemy>();
 
     private float stunTimer;
 
     public Transform playerTransform;
 
+    public HealthStats healthStats;
+    public float deathDuratoion = 3f;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentHealth = maxHealth;
+        healthStats = GetComponentInChildren<HealthStats>();
         EnterStunnedState();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (healthStats.health <= 0)
+        {
+            CurrentState = BossState.Dying;
+        }
         Debug.Log(CurrentState);
         switch (CurrentState)
         {
@@ -49,6 +53,9 @@ public class BossStateMachine : MonoBehaviour
 
             case BossState.Stunned:
                 UpdateStunned();
+                break;
+            case BossState.Dying:
+                UpdateDying();
                 break;
         }
                 
@@ -112,21 +119,29 @@ public class BossStateMachine : MonoBehaviour
             StartEnemyPhase();
         }
     }
-
-    public void TakeDamage(int damage)
+    void UpdateDying()
     {
-        if (CurrentState != BossState.Stunned)
-            return;
-
-        currentHealth -= damage;
-
-        Debug.Log("Boss HP: " + currentHealth);
-
-        if (currentHealth <= 0)
+        deathDuratoion-= Time.deltaTime;
+        if (deathDuratoion <= 0)
         {
-            Die(); //DIE
+            Destroy(gameObject);
         }
     }
+
+    //public void TakeDamage(int damage)
+    //{
+    //    if (CurrentState != BossState.Stunned)
+    //        return;
+
+    //    currentHealth -= damage;
+
+    //    Debug.Log("Boss HP: " + currentHealth);
+
+    //    if (currentHealth <= 0)
+    //    {
+    //        Die(); //DIE
+    //    }
+    //}
 
     void Die()
     {
