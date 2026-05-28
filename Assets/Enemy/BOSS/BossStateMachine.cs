@@ -34,6 +34,7 @@ public class BossStateMachine : MonoBehaviour
     void Start()
     {
         healthStats = GetComponentInChildren<HealthStats>();
+        healthStats.canTakeDamage = false;
         EnterStunnedState();
     }
 
@@ -66,6 +67,7 @@ public class BossStateMachine : MonoBehaviour
     {
         Debug.Log("Spawning");
         CurrentState = BossState.SpawningEnemies;
+        healthStats.canTakeDamage = false;
 
         aliveEnemies.Clear();
 
@@ -99,6 +101,8 @@ public class BossStateMachine : MonoBehaviour
 
         stunTimer = stunDuration;
 
+        healthStats.canTakeDamage = true;
+
         Debug.Log("Boss is stunned!");
     }
 
@@ -127,21 +131,6 @@ public class BossStateMachine : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    //public void TakeDamage(int damage)
-    //{
-    //    if (CurrentState != BossState.Stunned)
-    //        return;
-
-    //    currentHealth -= damage;
-
-    //    Debug.Log("Boss HP: " + currentHealth);
-
-    //    if (currentHealth <= 0)
-    //    {
-    //        Die(); //DIE
-    //    }
-    //}
 
     void Die()
     {

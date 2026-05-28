@@ -50,4 +50,4 @@ MonoBehaviour:
         name: DamageData
         attackData:
         - name: 
-          <Amount>k__BackingField: 10
+          <Amount>k__BackingField: 1

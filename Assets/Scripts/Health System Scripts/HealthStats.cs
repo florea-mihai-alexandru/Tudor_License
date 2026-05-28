@@ -31,6 +31,9 @@ public class HealthStats : MonoBehaviour, IDamageable
     public float MaxHealth { get { return maxHealth; } }
     public float MaxTotalHealth { get { return maxTotalHealth; } }
 
+    private float remainingCooldown;
+    public float damageCooldown = 0f;
+
     public void Heal(float health)
     {
         this.health += health;
@@ -41,8 +44,17 @@ public class HealthStats : MonoBehaviour, IDamageable
     {
         if (canTakeDamage)
         {
-            health -= dmg;
-            ClampHealth();
+            if (remainingCooldown <= 0f)
+            { 
+                health -= dmg;
+                ClampHealth();
+
+                remainingCooldown = damageCooldown;
+            }
+            else
+            {
+                remainingCooldown -= Time.deltaTime;
+            }
         }
     }
 

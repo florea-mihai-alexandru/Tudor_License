@@ -19,7 +19,7 @@ public class EnemyData : ScriptableObject
     public float chaseSpeed = 75f;
 
     [Header("Attack State")]
-    public float attackDuration = 0.5f;
+    public float attackDuration = 0.2f;
     public float preWindupDuration = 1f;
     public float AoE_Radius = 15f;
     public float Damage = 1;
