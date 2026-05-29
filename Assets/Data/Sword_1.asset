@@ -65,11 +65,11 @@ MonoBehaviour:
           <HitBoxSize>k__BackingField: {x: 8, y: 6, z: 3}
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
-          m_Bits: 64
+          m_Bits: 640
     - rid: 7282200253688709194
       type: {class: DamageData, ns: , asm: Assembly-CSharp}
       data:
         name: DamageData
         attackData:
         - name: 
-          <Amount>k__BackingField: 10
+          <Amount>k__BackingField: 1

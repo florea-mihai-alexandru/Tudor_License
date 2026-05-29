@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.AI;
@@ -20,7 +21,7 @@ public class Enemy : MonoBehaviour
     public NavMeshAgent EnemyNavMeshAgent { get; private set; }
     [SerializeField]
     private Transform playerTransform;
-    public Transform PlayerTransform { get; private set; }
+    public Transform PlayerTransform { get; set; }
     public Collider EnemyCollider { get; private set; }
     #endregion
 
@@ -55,6 +56,12 @@ public class Enemy : MonoBehaviour
     public ContextSteering AI_ContextSteering { get; private set; }
     public float originalMass;
     public float attackingMass;
+
+    public HealthStats HealthStats { get; private set; }
+    public bool isDead = false;
+    
+    // COMMON FOR ALL ENEMIES, NOT IDEAL TO HAVE HERE THOUGH 
+    public EnemyDeathState deathState;
     #endregion
 
 
@@ -63,6 +70,8 @@ public class Enemy : MonoBehaviour
     {
         RB = GetComponent<Rigidbody>();
         Anim = GetComponentInChildren<Animator>();
+
+        HealthStats = GetComponent<HealthStats>();
         
         EnemyNavMeshAgent = GetComponentInChildren<NavMeshAgent>();
         EnemyNavMeshAgent.updatePosition = false;
@@ -78,9 +87,11 @@ public class Enemy : MonoBehaviour
         {
             CentrePos = EnemyCollider.bounds.center;
         }
-        Debug.Log(CentrePos);
+        //Debug.Log(CentrePos);
      
-        PlayerTransform = playerTransform;
+        if (playerTransform != null) 
+            PlayerTransform = playerTransform;
+
         FacingDirection = new Vector3(1, 0, 0);
 
         WhatIsOponent = whatIsOponent;
@@ -92,11 +103,20 @@ public class Enemy : MonoBehaviour
         
         originalMass = RB.mass;
         attackingMass = originalMass * 100f;
+
+        deathState = new EnemyDeathState(this, this.StateMachine, enemyData, "death", 2f);
     }
 
     public virtual void Update()
     {
         AI_ContextSteering.centrePos = CentrePos;
+        //FindTarget();
+        if (HealthStats.health <= 0)
+            isDead = true;
+
+        if (PlayerTransform.IsDestroyed())
+            PlayerTransform = null;
+
         StateMachine.CurrentState.LogicUpdate();
     }
     public virtual void FixedUpdate()
@@ -123,12 +143,17 @@ public class Enemy : MonoBehaviour
     public float distanceToPlayer()
     {
         //Debug.Log((CenterPos - playerTransform.position).magnitude);
-        return (CentrePos - playerTransform.position).magnitude;
+        if (PlayerTransform != null && !PlayerTransform.gameObject.IsDestroyed())
+            return (CentrePos - PlayerTransform.position).magnitude;
+        else 
+            return float.PositiveInfinity;
     }
 
     public Vector3 toPlayerVector()
     {
-        return CentrePos - playerTransform.position;
+        if (PlayerTransform != null && !PlayerTransform.gameObject.IsDestroyed())
+            return CentrePos - PlayerTransform.position;
+        else return Vector3.zero;
     }
 
     GameObject FindChildWithTag(GameObject parent, string tag)
@@ -178,6 +203,28 @@ public class Enemy : MonoBehaviour
         if (EnemyNavMeshAgent.remainingDistance <= EnemyNavMeshAgent.stoppingDistance)
             return true;
         return false;
+    }
+
+    void FindTarget()
+    {
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        float closestDistance = Mathf.Infinity;
+
+        Transform closestTarget = null;
+
+        foreach (GameObject player in players)
+        {
+            float distance = Vector3.Distance(transform.position, player.transform.position);
+
+            if (distance < closestDistance && distance <= enemyData.chaseDisThresh*100)
+            {
+                closestDistance = distance;
+                closestTarget = player.transform;
+            }
+        }
+        if (closestTarget != null) 
+            playerTransform = closestTarget;
     }
     #endregion
 

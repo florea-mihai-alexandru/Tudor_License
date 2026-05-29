@@ -8,6 +8,7 @@ public class Damage : WeaponComponent<DamageData, AttackDamage>
     {
         foreach(var item in colliders)
         {
+            Debug.Log(item);
             if(item.TryGetComponent(out IDamageable damageable))
             {
                 damageable.Damage(currentAttackData.Amount);

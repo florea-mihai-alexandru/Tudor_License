@@ -54,10 +54,10 @@ public class EnemyAttackState : EnemyState
         }
         else
         {
+            enemy.performAttack();
             if (attackTime >= attackDuration)
             {
                 //Debug.Log("Attack performed on time " + attackTime);
-                enemy.performAttack();
                 attackDone = true;
             }
 
