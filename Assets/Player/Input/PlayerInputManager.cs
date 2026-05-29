@@ -29,6 +29,12 @@ public class PlayerInputManager : MonoBehaviour
             DashInput = true;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+            DialogueManager.Instance.HandleEnterPress();
+    }
+
     public void DashUsed() => DashInput = false;
     public void AttackUsed() => AttackInput = false;
 }

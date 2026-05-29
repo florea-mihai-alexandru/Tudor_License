@@ -23,11 +23,19 @@ public class PlayerAttackState : PlayerAilityState
     public override void Enter()
     {
         base.Enter();
+
+        int dirIndex = player.GetAttackDirectionIndex();
+
         if (actionHitBox != null)
         {
             Vector3 moveDir = player.LastMoveDirection;
-            actionHitBox.AttackDirection = moveDir != Vector3.zero ? moveDir : player.transform.right; 
+            actionHitBox.AttackDirection = moveDir != Vector3.zero ? moveDir : player.transform.right;
         }
+
+        weapon.SetAttackDirection(player.GetAttackDirectionIndex());
+        var weaponSprite = weapon.GetComponentInChildren<WeaponSprite>();
+        if (weaponSprite != null)
+            weaponSprite.AttackDirectionIndex = dirIndex;
 
         weapon.Enter();
     }

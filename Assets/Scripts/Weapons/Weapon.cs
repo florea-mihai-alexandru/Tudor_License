@@ -49,4 +49,9 @@ public class Weapon : MonoBehaviour
     {
         eventHandler.OnFinish -= Exit;
     }
+
+    public void SetAttackDirection(int dirIndex)
+    {
+        anim.SetInteger("attackDirection", dirIndex);
+    }
 }
