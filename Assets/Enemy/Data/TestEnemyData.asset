@@ -19,7 +19,7 @@ MonoBehaviour:
   wanderSpeed: 25
   wanderingDistanceRange: 60
   chaseSpeed: 40
-  attackDuration: 0.5
-  preWindupDuration: 1
+  attackDuration: 0.475
+  preWindupDuration: 0.4
   AoE_Radius: 15
   Damage: 1

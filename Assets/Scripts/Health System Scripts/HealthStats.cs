@@ -4,7 +4,7 @@
 
 using UnityEngine;
 
-public class HealthStats : MonoBehaviour
+public class HealthStats : MonoBehaviour, IDamageable
 {
     public delegate void OnHealthChangedDelegate();
     public OnHealthChangedDelegate onHealthChangedCallback;
@@ -19,15 +19,20 @@ public class HealthStats : MonoBehaviour
     #endregion
 
     [SerializeField]
-    private float health;
+    public float health;
     [SerializeField]
     private float maxHealth;
     [SerializeField]
     private float maxTotalHealth;
 
+    public bool canTakeDamage = true;
+
     public float Health { get { return health; } }
     public float MaxHealth { get { return maxHealth; } }
     public float MaxTotalHealth { get { return maxTotalHealth; } }
+
+    private float remainingCooldown;
+    public float damageCooldown = 0f;
 
     public void Heal(float health)
     {
@@ -37,8 +42,20 @@ public class HealthStats : MonoBehaviour
 
     public void TakeDamage(float dmg)
     {
-        health -= dmg;
-        ClampHealth();
+        if (canTakeDamage)
+        {
+            if (remainingCooldown <= 0f)
+            { 
+                health -= dmg;
+                ClampHealth();
+
+                remainingCooldown = damageCooldown;
+            }
+            else
+            {
+                remainingCooldown -= Time.deltaTime;
+            }
+        }
     }
 
     public void AddHealth()
@@ -59,5 +76,12 @@ public class HealthStats : MonoBehaviour
 
         if (onHealthChangedCallback != null)
             onHealthChangedCallback.Invoke();
+    }
+
+    public void Damage(float amount)
+    {
+        Debug.Log("werghjnwgg");
+        TakeDamage(amount);
+
     }
 }

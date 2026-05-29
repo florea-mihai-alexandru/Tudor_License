@@ -33,7 +33,10 @@ public class EnemyState
 
     public virtual void LogicUpdate()
     {
-
+        if (enemy.isDead)
+        {
+            stateMachine.ChangeState(enemy.deathState);
+        }
     }
 
     public virtual void PhysicsUpdate()

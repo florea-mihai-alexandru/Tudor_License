@@ -44,7 +44,7 @@ public class Computer_EN : Enemy
             HealthStats oponentScript = enemy.GetComponentInChildren<HealthStats>();
             if (oponentScript != null)
             {
-                Debug.Log("TOOK DAMAGE");
+                //Debug.Log("TOOK DAMAGE");
                 oponentScript.TakeDamage(1);
             }
         }
