@@ -95,16 +95,20 @@ public class Player : MonoBehaviour
     {
         CurrentVelocity = RB.linearVelocity;
 
+        //NOTA PENTRU MIHAI GIBONUL NU DECOMENTA ACEST COD. MULTUMESC
         // Blocheaza input-ul de miscare daca dialogul e activ
-        if (DialogueManager.Instance.IsActive)
-        {
-            SetVelocity(Vector3.zero);
-            return;
-        }
+        //if (DialogueManager.Instance != null && DialogueManager.Instance.IsActive)
+        //{
+        //    SetVelocity(Vector3.zero);
+        //    return;
+        //}
 
         Vector3 moveDir = new Vector3(PlayerInput.MoveInput.x, 0f, PlayerInput.MoveInput.y).normalized;
         if (moveDir != Vector3.zero)
             LastMoveDirection = moveDir;
+
+        Debug.Log("Health: " + PlayerHealthStats.health + " | isDead: " + isDead);
+
         if (PlayerHealthStats.health <= 0)
             isDead = true;
 

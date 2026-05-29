@@ -35,8 +35,11 @@ public class PlayerInputManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
+        {
             DialogueManager.Instance.HandleEnterPress();
+        }
+    }
     public void OnWeaponLeftInput(InputAction.CallbackContext context)
     {
         if (context.started){
@@ -57,7 +60,6 @@ public class PlayerInputManager : MonoBehaviour
     public void LeftWeaponUsed() => LeftWeaponSwitch = false;
     public void RightWeaponUsed() => RightWeaponSwitch = false;
 
-
-    }
 }
+
 
