@@ -8,6 +8,8 @@ public class WeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites>
 
     private int currentWeaponSpriteIndex;
 
+    public int AttackDirectionIndex { get; set; } = 0; 
+
     protected override void HandleEnter()
     {
         base.HandleEnter();
@@ -20,18 +22,20 @@ public class WeaponSprite : WeaponComponent<WeaponSpriteData, AttackSprites>
         if (!isAttackActive)
         {
             weaponSpriteRenderer.sprite = null;
+            weaponSpriteRenderer.flipX = false; 
             return;
         }
 
-        var currentAttackSprites = currentAttackData.Sprites;
+        var currentAttackSprites = currentAttackData.GetSpritesForDirection(AttackDirectionIndex);
 
-        if (currentWeaponSpriteIndex >= currentAttackSprites.Length) 
+        if (currentWeaponSpriteIndex >= currentAttackSprites.Length)
         {
             Debug.LogWarning($"{weapon.name} weapons sprites length error");
             return;
         }
-
         weaponSpriteRenderer.sprite = currentAttackSprites[currentWeaponSpriteIndex];
+
+        weaponSpriteRenderer.flipX = AttackDirectionIndex == 1;
 
         currentWeaponSpriteIndex++;
     }

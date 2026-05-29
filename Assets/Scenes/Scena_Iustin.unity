@@ -252,6 +252,8 @@ MonoBehaviour:
   health: 3
   maxHealth: 3
   maxTotalHealth: 3
+  canTakeDamage: 1
+  damageCooldown: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -442,6 +444,8 @@ MonoBehaviour:
   health: 5
   maxHealth: 5
   maxTotalHealth: 5
+  canTakeDamage: 1
+  damageCooldown: 0
 --- !u!1 &389900874
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,6 +1166,34 @@ PrefabInstance:
     - target: {fileID: 5201017174181343527, guid: c70d3c0997c9ce448beccf84d6220241, type: 3}
       propertyPath: m_Name
       value: PlayerYusti
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034708885342074892, guid: c70d3c0997c9ce448beccf84d6220241, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034708885342074892, guid: c70d3c0997c9ce448beccf84d6220241, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034708885342074892, guid: c70d3c0997c9ce448beccf84d6220241, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034708885342074892, guid: c70d3c0997c9ce448beccf84d6220241, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034708885342074892, guid: c70d3c0997c9ce448beccf84d6220241, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6034708885342074892, guid: c70d3c0997c9ce448beccf84d6220241, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6421327190096572615, guid: c70d3c0997c9ce448beccf84d6220241, type: 3}
+      propertyPath: health
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
