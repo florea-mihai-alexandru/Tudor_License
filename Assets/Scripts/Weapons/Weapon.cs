@@ -17,7 +17,7 @@ public class Weapon : MonoBehaviour
     public void Enter()
     {
         print($"{transform.name} enter");
-
+       
         anim.SetBool("active", true);
 
         OnEnter?.Invoke();
@@ -48,5 +48,10 @@ public class Weapon : MonoBehaviour
     private void OnDisable()
     {
         eventHandler.OnFinish -= Exit;
+    }
+
+    public void SetAttackDirection(int dirIndex)
+    {
+        anim.SetInteger("attackDirection", dirIndex);
     }
 }

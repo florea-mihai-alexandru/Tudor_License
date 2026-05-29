@@ -25,13 +25,35 @@ MonoBehaviour:
         name: WeaponSpriteData
         attackData:
         - name: 
-          <Sprites>k__BackingField:
+          <SpritesRight>k__BackingField:
           - {fileID: 21300000, guid: ba9e50df879766046af655aff531cbba, type: 3}
           - {fileID: 21300000, guid: b7d5951c221acb443b57dba55b8d9c64, type: 3}
           - {fileID: 21300000, guid: 862635dc74cec574cbb59cf9f58a3adf, type: 3}
           - {fileID: 21300000, guid: 7c6fb608ec34b5e4c93844057554097f, type: 3}
           - {fileID: 21300000, guid: b455e78fff478e34a88a026e266e2205, type: 3}
           - {fileID: 21300000, guid: 092865ce8ce7dca4a89ca194576c0e4f, type: 3}
+          <SpritesLeft>k__BackingField:
+          - {fileID: 21300000, guid: ba9e50df879766046af655aff531cbba, type: 3}
+          - {fileID: 21300000, guid: b7d5951c221acb443b57dba55b8d9c64, type: 3}
+          - {fileID: 21300000, guid: 862635dc74cec574cbb59cf9f58a3adf, type: 3}
+          - {fileID: 21300000, guid: 7c6fb608ec34b5e4c93844057554097f, type: 3}
+          - {fileID: 21300000, guid: b455e78fff478e34a88a026e266e2205, type: 3}
+          - {fileID: 21300000, guid: 092865ce8ce7dca4a89ca194576c0e4f, type: 3}
+          <SpritesUp>k__BackingField:
+          - {fileID: 21300000, guid: df97f80b7f6f0404a9236f3248168cdb, type: 3}
+          - {fileID: 21300000, guid: 6d55dc9a7b8df2d40b52ee8e4a389ada, type: 3}
+          - {fileID: 21300000, guid: 6021430eb63c2c44cacf7db3b88ef849, type: 3}
+          - {fileID: 21300000, guid: 39f9872d2d6aeda40b75ebed71c6b37d, type: 3}
+          - {fileID: 21300000, guid: db5cac8a116ef164caea5ea74d0043a7, type: 3}
+          - {fileID: 21300000, guid: 25dc07121ebfd0f4a885ecd03b9d2390, type: 3}
+          <SpritesDown>k__BackingField:
+          - {fileID: 21300000, guid: cc040b18e95bc404f9b811e15f5e0f9b, type: 3}
+          - {fileID: 21300000, guid: 783008c5fc9195345814dd71c0a25faf, type: 3}
+          - {fileID: 21300000, guid: c416e807166143c43bf19770f167db8e, type: 3}
+          - {fileID: 21300000, guid: 57e26d537c634164fab11bcc257a65d8, type: 3}
+          - {fileID: 21300000, guid: 620173fc5ce92d140b3f0fe3358a73c4, type: 3}
+          - {fileID: 21300000, guid: 41553bb69d5c86345b343f0557d2d313, type: 3}
+          - {fileID: 21300000, guid: 6e7ea90d3ea7650488a1ae55733f6912, type: 3}
     - rid: 5994534311668219904
       type: {class: ActionHitBoxData, ns: , asm: Assembly-CSharp}
       data:

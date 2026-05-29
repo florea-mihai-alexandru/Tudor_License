@@ -48,6 +48,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private Transform playerSpriteTransform;
 
+    public Vector3 LastMoveDirection { get; private set; } = Vector3.right;
+    private ActionHitBox actionHitBox;
     public bool isDead = false;
 
     #endregion
@@ -57,11 +59,13 @@ public class Player : MonoBehaviour
     {
         weapon = transform.Find("Weapon").GetComponent<Weapon>();
 
+        actionHitBox = GetComponentInChildren<ActionHitBox>();
+
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
         DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
-        AttackState = new PlayerAttackState(this, StateMachine, playerData, "empty", weapon);
+        AttackState = new PlayerAttackState(this, StateMachine, playerData, "empty", weapon, actionHitBox);
         DeathState = new PlayerDeathState(this, StateMachine, playerData, "death", 2f);
     }
 
@@ -90,6 +94,21 @@ public class Player : MonoBehaviour
     private void Update()
     {
         CurrentVelocity = RB.linearVelocity;
+
+        //NOTA PENTRU MIHAI GIBONUL NU DECOMENTA ACEST COD. MULTUMESC
+        // Blocheaza input-ul de miscare daca dialogul e activ
+        //if (DialogueManager.Instance != null && DialogueManager.Instance.IsActive)
+        //{
+        //    SetVelocity(Vector3.zero);
+        //    return;
+        //}
+
+        Vector3 moveDir = new Vector3(PlayerInput.MoveInput.x, 0f, PlayerInput.MoveInput.y).normalized;
+        if (moveDir != Vector3.zero)
+            LastMoveDirection = moveDir;
+
+        Debug.Log("Health: " + PlayerHealthStats.health + " | isDead: " + isDead);
+
         if (PlayerHealthStats.health <= 0)
             isDead = true;
 
@@ -126,6 +145,15 @@ public class Player : MonoBehaviour
         {
             return Vector3.zero;
         }
+    }
+
+    public int GetAttackDirectionIndex()
+    {
+        Vector3 dir = LastMoveDirection;
+        if (Mathf.Abs(dir.x) >= Mathf.Abs(dir.z))
+            return dir.x >= 0 ? 0 : 1;
+        else
+            return dir.z >= 0 ? 2 : 3;
     }
     #endregion
 
