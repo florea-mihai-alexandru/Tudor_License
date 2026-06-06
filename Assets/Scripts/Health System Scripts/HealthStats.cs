@@ -40,8 +40,12 @@ public class HealthStats : MonoBehaviour, IDamageable
         ClampHealth();
     }
 
-    public void TakeDamage(float dmg)
+    public void TakeDamage(float dmg, float enemyAtDuration = 0)
     {
+        if (enemyAtDuration == 0)
+        {
+            enemyAtDuration = damageCooldown;
+        }
         if (canTakeDamage)
         {
             if (remainingCooldown <= 0f)
@@ -49,7 +53,7 @@ public class HealthStats : MonoBehaviour, IDamageable
                 health -= dmg;
                 ClampHealth();
 
-                remainingCooldown = damageCooldown;
+                remainingCooldown = enemyAtDuration;
             }
             else
             {
