@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RoomManager : MonoBehaviour
@@ -7,6 +8,11 @@ public class RoomManager : MonoBehaviour
     public GameObject player;
 
     public Room currentRoom;
+    
+    public int currentYear = 0;
+
+    public Transform doorHandlerTransform;
+    public DoorHandler doorHandlerScript;
 
     private Room[] allRooms;
 
@@ -21,14 +27,28 @@ public class RoomManager : MonoBehaviour
 
         //ActivateRoom(currentRoom);
         if (currentRoom != null) 
-       { 
+        { 
             if (currentRoom.defaultSpawnPoint != null)
             {
                 player.transform.position =
                     currentRoom.defaultSpawnPoint.position;
             }
         }
+        
+
+        if (doorHandlerTransform != null)
+        {
+            doorHandlerScript = doorHandlerTransform.GetComponent<DoorHandler>();
+            doorHandlerScript.switchDoor(0);
+        }
+
+        progressYear();
             
+    }
+
+    public void Update()
+    {
+        
     }
 
     public void Teleport(Room newRoom, Transform spawnPoint)
@@ -51,5 +71,11 @@ public class RoomManager : MonoBehaviour
         }
 
         currentRoom = newRoom;
+    }
+
+    public void progressYear()
+    {
+        currentYear++;
+        doorHandlerScript.switchDoor(currentYear-1);
     }
 }
