@@ -5293,37 +5293,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &434227836
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 434227837}
-  m_Layer: 0
-  m_Name: Spawn2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &434227837
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 434227836}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -62.2, y: 0, z: 22.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1953268835}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &440976753
 GameObject:
   m_ObjectHideFlags: 0
@@ -5848,6 +5817,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2066316602}
     m_Modifications:
+    - target: {fileID: 2850356507061669278, guid: c7a152b425c911941bf1e9fe171f9cca, type: 3}
+      propertyPath: targetRoom
+      value: 
+      objectReference: {fileID: 1451402829}
     - target: {fileID: 2850356507061669278, guid: c7a152b425c911941bf1e9fe171f9cca, type: 3}
       propertyPath: targetSpawnPoint
       value: 
@@ -6495,6 +6468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 522282766}
+  - component: {fileID: 522282767}
   m_Layer: 0
   m_Name: camera 2
   m_TagString: Untagged
@@ -6521,6 +6495,24 @@ Transform:
   - {fileID: 770846999}
   m_Father: {fileID: 1583355199}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &522282767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522282765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54a4bb994cec4b40b245aa453a82da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room
+  roomFOV: 60
+  camRot: 45
+  encounterObject: {fileID: 0}
+  activateEncounterOnEnter: 0
+  onlyActivateOnce: 1
+  spawnPoint: {fileID: 159082318}
 --- !u!1 &532847163
 GameObject:
   m_ObjectHideFlags: 0
@@ -8254,37 +8246,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &657981327
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 657981328}
-  m_Layer: 0
-  m_Name: Spawn3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &657981328
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 657981327}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.1, y: 0, z: 22.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1953268835}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &670453902
 GameObject:
   m_ObjectHideFlags: 0
@@ -8381,6 +8342,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4688156583292782048, guid: 28c7c36ac77c94a44ae7732603da42b3, type: 3}
   m_PrefabInstance: {fileID: 757127764}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &673680849 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2042431499861245789, guid: c185fb93fd1ad4847964a45724b11f3d, type: 3}
+  m_PrefabInstance: {fileID: 1485878176}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
 --- !u!1 &676355242
 GameObject:
   m_ObjectHideFlags: 0
@@ -8849,6 +8821,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 12.5, y: 9.12, z: 7.7}
   m_Center: {x: -42.1, y: 0, z: 1.02}
+--- !u!4 &716143751 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 474980453571697605, guid: c7a152b425c911941bf1e9fe171f9cca, type: 3}
+  m_PrefabInstance: {fileID: 1306934394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &719764600
 GameObject:
   m_ObjectHideFlags: 0
@@ -9604,6 +9581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 797189170}
+  - component: {fileID: 797189171}
   m_Layer: 0
   m_Name: camera narnia
   m_TagString: Untagged
@@ -9628,6 +9606,24 @@ Transform:
   - {fileID: 1764262864}
   m_Father: {fileID: 1583355199}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &797189171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797189169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54a4bb994cec4b40b245aa453a82da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room
+  roomFOV: 60
+  camRot: 45
+  encounterObject: {fileID: 0}
+  activateEncounterOnEnter: 0
+  onlyActivateOnce: 1
+  spawnPoint: {fileID: 0}
 --- !u!1 &797870119
 GameObject:
   m_ObjectHideFlags: 0
@@ -10280,7 +10276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f76e6ccf501a64e44aa47388650f7674, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
-  targetSpawnPoint: {fileID: 0}
+  targetRoom: {fileID: 0}
   unlocked: 1
 --- !u!1 &873211091
 GameObject:
@@ -10736,37 +10732,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &929121120
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 929121121}
-  m_Layer: 0
-  m_Name: Spawn1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &929121121
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 929121120}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -121.1, y: 0, z: 22.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1953268835}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &930278710
 GameObject:
   m_ObjectHideFlags: 0
@@ -13304,6 +13269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1167774211}
+  - component: {fileID: 1167774212}
   m_Layer: 0
   m_Name: camera 1
   m_TagString: Untagged
@@ -13330,6 +13296,24 @@ Transform:
   - {fileID: 1460846934}
   m_Father: {fileID: 52087402}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1167774212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1167774210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54a4bb994cec4b40b245aa453a82da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room
+  roomFOV: 60
+  camRot: 45
+  encounterObject: {fileID: 0}
+  activateEncounterOnEnter: 0
+  onlyActivateOnce: 1
+  spawnPoint: {fileID: 1416154470}
 --- !u!1 &1180118174
 GameObject:
   m_ObjectHideFlags: 0
@@ -14139,7 +14123,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54a4bb994cec4b40b245aa453a82da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  defaultSpawnPoint: {fileID: 426639638}
+  roomFOV: 60
+  camRot: 45
+  encounterObject: {fileID: 0}
+  activateEncounterOnEnter: 1
+  onlyActivateOnce: 1
+  spawnPoint: {fileID: 0}
 --- !u!1 &1226061663
 GameObject:
   m_ObjectHideFlags: 0
@@ -15004,6 +14993,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1451402828}
     m_Modifications:
+    - target: {fileID: 2850356507061669278, guid: c7a152b425c911941bf1e9fe171f9cca, type: 3}
+      propertyPath: targetRoom
+      value: 
+      objectReference: {fileID: 1632311866}
     - target: {fileID: 2850356507061669278, guid: c7a152b425c911941bf1e9fe171f9cca, type: 3}
       propertyPath: targetSpawnPoint
       value: 
@@ -16548,6 +16541,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1451402828}
+  - component: {fileID: 1451402829}
   m_Layer: 0
   m_Name: Arena_BOSS
   m_TagString: Untagged
@@ -16569,13 +16563,30 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1188914535}
-  - {fileID: 1953268835}
   - {fileID: 1332844530}
   - {fileID: 2047509637}
   - {fileID: 1920507987}
   - {fileID: 1005841078}
   m_Father: {fileID: 22039127}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1451402829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451402827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54a4bb994cec4b40b245aa453a82da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room
+  roomFOV: 90
+  camRot: 30
+  encounterObject: {fileID: 1920507986}
+  activateEncounterOnEnter: 1
+  onlyActivateOnce: 1
+  spawnPoint: {fileID: 716143751}
 --- !u!1 &1452396465
 GameObject:
   m_ObjectHideFlags: 0
@@ -17696,12 +17707,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54a4bb994cec4b40b245aa453a82da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  defaultSpawnPoint: {fileID: 1512066725}
---- !u!4 &1512066725 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 474980453571697605, guid: c7a152b425c911941bf1e9fe171f9cca, type: 3}
-  m_PrefabInstance: {fileID: 5385678815178143870}
-  m_PrefabAsset: {fileID: 0}
+  roomFOV: 60
+  camRot: 45
+  encounterObject: {fileID: 0}
+  activateEncounterOnEnter: 1
+  onlyActivateOnce: 1
+  spawnPoint: {fileID: 0}
 --- !u!1 &1512880567
 GameObject:
   m_ObjectHideFlags: 0
@@ -18264,6 +18275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1558876341}
+  - component: {fileID: 1558876342}
   m_Layer: 0
   m_Name: camera 3
   m_TagString: Untagged
@@ -18290,6 +18302,24 @@ Transform:
   - {fileID: 196473614}
   m_Father: {fileID: 1583355199}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1558876342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1558876340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54a4bb994cec4b40b245aa453a82da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room
+  roomFOV: 60
+  camRot: 45
+  encounterObject: {fileID: 0}
+  activateEncounterOnEnter: 0
+  onlyActivateOnce: 1
+  spawnPoint: {fileID: 1844877946}
 --- !u!1 &1562224331
 GameObject:
   m_ObjectHideFlags: 0
@@ -18464,6 +18494,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 596578061}
   - {fileID: 1632311865}
   - {fileID: 522282766}
   - {fileID: 1558876341}
@@ -18853,6 +18884,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1632311865}
+  - component: {fileID: 1632311866}
   m_Layer: 0
   m_Name: hol
   m_TagString: Untagged
@@ -18879,6 +18911,24 @@ Transform:
   - {fileID: 1832095077}
   m_Father: {fileID: 1583355199}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1632311866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632311864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54a4bb994cec4b40b245aa453a82da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room
+  roomFOV: 60
+  camRot: 45
+  encounterObject: {fileID: 0}
+  activateEncounterOnEnter: 0
+  onlyActivateOnce: 1
+  spawnPoint: {fileID: 1832095077}
 --- !u!1 &1632755946
 GameObject:
   m_ObjectHideFlags: 0
@@ -19682,12 +19732,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1692864087}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57aa9e4acf2355a449c7fa62940e29ee, type: 3}
+  m_Script: {fileID: 11500000, guid: fe048ba6426c29b43ae9f278083f45e4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RoomManager
+  m_EditorClassIdentifier: Assembly-CSharp::LevelManager
+  cineCam: {fileID: 673680849}
   player: {fileID: 1163934648}
-  currentRoom: {fileID: 0}
-  currentYear: 0
 --- !u!1 &1693502119
 GameObject:
   m_ObjectHideFlags: 0
@@ -21193,6 +21242,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spawn_an1
       objectReference: {fileID: 0}
+    - target: {fileID: 2850356507061669278, guid: c7a152b425c911941bf1e9fe171f9cca, type: 3}
+      propertyPath: targetRoom
+      value: 
+      objectReference: {fileID: 1632311866}
     - target: {fileID: 2850356507061669278, guid: c7a152b425c911941bf1e9fe171f9cca, type: 3}
       propertyPath: targetSpawnPoint
       value: 
@@ -22915,7 +22968,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54a4bb994cec4b40b245aa453a82da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  defaultSpawnPoint: {fileID: 0}
+  roomFOV: 60
+  camRot: 45
+  encounterObject: {fileID: 0}
+  activateEncounterOnEnter: 1
+  onlyActivateOnce: 1
+  spawnPoint: {fileID: 0}
 --- !u!1 &1913901121
 GameObject:
   m_ObjectHideFlags: 0
@@ -23189,7 +23247,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1920507987
 Transform:
   m_ObjectHideFlags: 0
@@ -23576,63 +23634,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 12.5, y: 9.12, z: 7.7}
   m_Center: {x: -42.1, y: 0, z: 1.02}
---- !u!1 &1953268834
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1953268835}
-  - component: {fileID: 1953268836}
-  m_Layer: 0
-  m_Name: Boss_an1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &1953268835
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1953268834}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -113.6582, y: 7.3700027, z: 31.66516}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 929121121}
-  - {fileID: 434227837}
-  - {fileID: 657981328}
-  m_Father: {fileID: 1451402828}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1953268836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1953268834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e5b9b3c1f7f56a41967a7ff1fa10076, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ArenaEncounter
-  enemyPrefab: {fileID: 3023736772128838665, guid: 28c7c36ac77c94a44ae7732603da42b3, type: 3}
-  spawnPoints:
-  - {fileID: 1226061664}
-  - {fileID: 2119791351}
-  - {fileID: 1681304062}
-  - {fileID: 407851875}
-  totalWaves: 3
-  enemiesPerWave: 3
-  waveCooldown: 3
-  crystalHealth: {fileID: 0}
 --- !u!1 &1961847819
 GameObject:
   m_ObjectHideFlags: 0
@@ -24139,7 +24140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1992737625
 Transform:
   m_ObjectHideFlags: 0
@@ -24869,6 +24870,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2066316602}
+  - component: {fileID: 2066316603}
   m_Layer: 0
   m_Name: Arena_inamici
   m_TagString: Untagged
@@ -24890,13 +24892,30 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1992737625}
-  - {fileID: 596578061}
   - {fileID: 1080663250}
   - {fileID: 33028413}
   - {fileID: 1840390741}
   - {fileID: 1733868055}
   m_Father: {fileID: 22039127}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2066316603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066316601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a54a4bb994cec4b40b245aa453a82da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Room
+  roomFOV: 60
+  camRot: 45
+  encounterObject: {fileID: 1992737623}
+  activateEncounterOnEnter: 1
+  onlyActivateOnce: 1
+  spawnPoint: {fileID: 1150864003}
 --- !u!1 &2066354100
 GameObject:
   m_ObjectHideFlags: 0
@@ -25916,7 +25935,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a54a4bb994cec4b40b245aa453a82da2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Room
-  defaultSpawnPoint: {fileID: 0}
+  roomFOV: 60
+  camRot: 45
+  encounterObject: {fileID: 0}
+  activateEncounterOnEnter: 1
+  onlyActivateOnce: 1
+  spawnPoint: {fileID: 0}
 --- !u!1 &2140322187
 GameObject:
   m_ObjectHideFlags: 0
@@ -26303,7 +26327,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2066316602}
+    m_TransformParent: {fileID: 1583355199}
     m_Modifications:
     - target: {fileID: 342052112966581842, guid: f2e6e875e2b00644ab0d1a5641e74892, type: 3}
       propertyPath: m_NavMeshData
@@ -27130,6 +27154,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7872488852533915448, guid: cb72490f2b95bb24398bff9c75525bec, type: 3}
+      propertyPath: targetRoom
+      value: 
+      objectReference: {fileID: 2066316603}
+    - target: {fileID: 7872488852533915448, guid: cb72490f2b95bb24398bff9c75525bec, type: 3}
       propertyPath: targetSpawnPoint
       value: 
       objectReference: {fileID: 1150864003}
@@ -27160,9 +27188,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProgressDoor
   destinations:
-  - targetSpawn: {fileID: 1416154470}
-  - targetSpawn: {fileID: 159082318}
-  - targetSpawn: {fileID: 1844877946}
+  - targetRoom: {fileID: 1167774212}
+  - targetRoom: {fileID: 522282767}
+  - targetRoom: {fileID: 1558876342}
 --- !u!1001 &8520239498070241310
 PrefabInstance:
   m_ObjectHideFlags: 0
