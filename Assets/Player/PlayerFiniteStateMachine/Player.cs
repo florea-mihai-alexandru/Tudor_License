@@ -1,5 +1,7 @@
 using Mono.Cecil.Cil;
 using UnityEngine;
+using Unity.Cinemachine;
+
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
@@ -51,6 +53,10 @@ public class Player : MonoBehaviour
     public Vector3 LastMoveDirection { get; private set; } = Vector3.right;
     private ActionHitBox actionHitBox;
     public bool isDead = false;
+
+    public bool inBoss = false;
+    [SerializeField] 
+    private CinemachineCamera cineCam;
 
     #endregion
 
@@ -107,14 +113,27 @@ public class Player : MonoBehaviour
         if (moveDir != Vector3.zero)
             LastMoveDirection = moveDir;
 
-        Debug.Log("Health: " + PlayerHealthStats.health + " | isDead: " + isDead);
-
         if (PlayerHealthStats.health <= 0)
             isDead = true;
 
-        StateMachine.CurrentState.LogicUpdate();
+        if (cineCam != null)
+        {
+            if (inBoss)
+            {
+                // FOV
+                cineCam.Lens.FieldOfView = 90f;
 
-        //WeaponParent.PointerPosition = gameHandler.MouseScreenCoords;
+                // Rotation
+                cineCam.transform.rotation = Quaternion.Euler(30f, 0f, 0f);
+            }
+            else
+            {
+                cineCam.Lens.FieldOfView = 60f;
+                cineCam.transform.rotation = Quaternion.Euler(45f, 0f, 0f);
+            }
+        }
+
+        StateMachine.CurrentState.LogicUpdate();
     }
 
     private void FixedUpdate()

@@ -109,17 +109,8 @@ public class LevelStateMachine : MonoBehaviour
     void UpdateStunned()
     {
         stunTimer -= Time.deltaTime;
-        //Debug.Log(stunTimer.ToString() + "timer");
         if (stunTimer <= 0)
         {
-            //if (currentHealth <= maxHealth * 0.3f)
-            //{
-            //    EnterEnragedState();
-            //}
-            //else
-            //{
-            //    StartEnemyPhase();
-            //}
             healthStats.TakeDamage(1);
             StartEnemyPhase();
         }
@@ -131,12 +122,5 @@ public class LevelStateMachine : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    void Die()
-    {
-        Debug.Log("Level Defeated!");
-
-        Destroy(gameObject);
     }
 }
