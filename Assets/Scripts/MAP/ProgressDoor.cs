@@ -15,7 +15,7 @@ public class ProgressDoor : MonoBehaviour
         if (!other.CompareTag("Player"))
             return;
 
-        int stage = ProgressManager.Instance.currentStage;
+        int stage = LevelManager.Instance.currentStage;
 
         if (stage >= destinations.Length)
             stage = destinations.Length - 1;

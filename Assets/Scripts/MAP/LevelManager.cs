@@ -1,4 +1,3 @@
-using TMPro.Examples;
 using UnityEngine;
 using Unity.Cinemachine;
 
@@ -12,6 +11,8 @@ public class LevelManager : MonoBehaviour
     public Room CurrentRoom { get; private set; }
 
     public GameObject player;
+
+    public int currentStage = 0;
 
     private void Awake()
     {
@@ -31,11 +32,18 @@ public class LevelManager : MonoBehaviour
         cineCam.Lens.FieldOfView = room.roomFOV;
         cineCam.transform.rotation = Quaternion.Euler(room.camRot, 0f, 0f);
 
+        Camera.main.backgroundColor = room.backColor;
+
         room.EnterRoom();
     }
 
     public void Teleport(Transform spawnPoint)
     {
         player.transform.position = spawnPoint.position;
+    }
+
+    public void CompleteStage()
+    {
+        currentStage++;
     }
 }

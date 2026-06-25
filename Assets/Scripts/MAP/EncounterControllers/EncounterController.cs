@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EncounterController : MonoBehaviour
 {
-    public Enemy enemyPrefab;
+    public Enemy[] enemyPrefabs;
     public Transform[] spawnPoints;
 
     public int totalWaves = 3;
@@ -54,6 +54,9 @@ public class EncounterController : MonoBehaviour
         {
             Transform spawn =
                 spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+            Enemy enemyPrefab =
+                enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
 
             Enemy enemy =
                 Instantiate(enemyPrefab,

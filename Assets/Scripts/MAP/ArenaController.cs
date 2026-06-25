@@ -21,5 +21,6 @@ public class ArenaController : MonoBehaviour
     public void BossDefeated()
     {
         exitDoor.unlocked = true;
+
     }
 }

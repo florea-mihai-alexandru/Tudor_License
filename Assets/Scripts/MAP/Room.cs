@@ -5,6 +5,7 @@ public class Room : MonoBehaviour
     [Header("Camera")]
     public float roomFOV = 60f;
     public float camRot = 45f;
+    public Color backColor = new Color32(72, 64, 56, 0);
 
     [Header("Encounter")]
     public GameObject encounterObject;
@@ -15,6 +16,7 @@ public class Room : MonoBehaviour
 
     private bool activated = false;
 
+    [Header("Spawn Points")]
     public Transform spawnPoint;
 
     public void EnterRoom()

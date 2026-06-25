@@ -18,7 +18,7 @@ public class Computer_EN : Enemy
         AttackState = new Computer_AttackState(this, StateMachine, enemyData, "attack");
         ChaseState = new Computer_ChaseState(this, StateMachine, enemyData, "walk");
 
-        StateMachine.Initialize(WanderState);
+        StateMachine.Initialize(IdleState);
     }
 
     public override void FixedUpdate()
