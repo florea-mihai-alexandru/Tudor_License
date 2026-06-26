@@ -15,6 +15,8 @@ public class PlayerInputManager : MonoBehaviour
     public bool LeftWeaponSwitch { get; private set; }
     public bool RightWeaponSwitch { get; private set; }
 
+    public bool InteractInput { get; private set; }
+
     public void OnMoveInput(InputAction.CallbackContext context)
     {
         MoveInput = context.ReadValue<Vector2>();
@@ -33,11 +35,21 @@ public class PlayerInputManager : MonoBehaviour
             DashInput = true;
     }
 
+
+    public void OnInteractInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+            InteractInput = true;
+    }
+
+    
+
     private void Update()
     {
         if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
         {
-            DialogueManager.Instance.HandleEnterPress();
+            if (DialogueManager.Instance != null)
+                DialogueManager.Instance.HandleEnterPress();
         }
     }
     public void OnWeaponLeftInput(InputAction.CallbackContext context)
@@ -59,7 +71,7 @@ public class PlayerInputManager : MonoBehaviour
     public void AttackUsed() => AttackInput = false;
     public void LeftWeaponUsed() => LeftWeaponSwitch = false;
     public void RightWeaponUsed() => RightWeaponSwitch = false;
-
+    public void InteractUsed() => InteractInput = false;
 }
 
 

@@ -1,4 +1,5 @@
 using Mono.Cecil.Cil;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour
     private ActionHitBox actionHitBox;
     public bool isDead = false;
 
+
     #endregion
 
     #region Unity Callback Functions
@@ -102,6 +104,21 @@ public class Player : MonoBehaviour
         //    SetVelocity(Vector3.zero);
         //    return;
         //}
+
+        if (DialogueManager.Instance != null && DialogueManager.Instance.IsActive)
+        {
+            SetVelocity(Vector3.zero);
+            return;
+        }
+
+        if (PlayerInput.InteractInput)
+        {
+            PlayerInput.InteractUsed();
+            DialogueTrigger trigger = FindObjectsByType<DialogueTrigger>(FindObjectsSortMode.None)
+                .FirstOrDefault(t => t.IsPlayerInRange());
+            if (trigger != null)
+                DialogueManager.Instance.StartDialogue(trigger.dialogueData, trigger.BubbleAnchor);
+        }
 
         Vector3 moveDir = new Vector3(PlayerInput.MoveInput.x, 0f, PlayerInput.MoveInput.y).normalized;
         if (moveDir != Vector3.zero)
@@ -173,5 +190,6 @@ public class Player : MonoBehaviour
     {
         RB.AddForce(force);
     }
+
     #endregion
 }

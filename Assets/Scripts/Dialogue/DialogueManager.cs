@@ -4,26 +4,27 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
 
-    [SerializeField] private DialogueBox dialogueBox;
+    [SerializeField] private DialogueBubble npcBubble;
 
     private DialogueLine[] currentLines;
     private int currentIndex;
+
     public bool IsActive { get; private set; }
+
+    private Transform currentAnchor;
 
     private void Awake()
     {
         Instance = this;
-        dialogueBox.Hide();
+        npcBubble.Hide();
     }
 
-    public void StartDialogue(DialogueTrigger trigger)
+    public void StartDialogue(DialogueDataSO data, Transform anchor)
     {
         IsActive = true;
-        currentLines = trigger.Lines;
+        currentLines = data.lines;
         currentIndex = 0;
-
-        dialogueBox.transform.position = trigger.Anchor.position;
-
+        currentAnchor = anchor;
         ShowCurrentLine();
     }
 
@@ -31,31 +32,28 @@ public class DialogueManager : MonoBehaviour
     {
         if (!IsActive) return;
 
-        if (dialogueBox.IsTyping)
+        if (npcBubble.IsTyping)
         {
-            dialogueBox.SkipToEnd();
+            npcBubble.SkipToEnd();
             return;
         }
-    
+
         currentIndex++;
+
         if (currentIndex < currentLines.Length)
-        {
             ShowCurrentLine();
-        }
         else
-        {
             EndDialogue();
-        }
     }
 
     private void ShowCurrentLine()
     {
-        dialogueBox.Show(currentLines[currentIndex].text);
+        npcBubble.Show(currentLines[currentIndex].text, currentAnchor);
     }
 
     private void EndDialogue()
     {
         IsActive = false;
-        dialogueBox.Hide();
+        npcBubble.Hide();
     }
 }
