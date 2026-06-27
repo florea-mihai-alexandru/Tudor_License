@@ -43,15 +43,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Interaction",
-                    "type": "Button",
-                    "id": "2d8e1877-f3b2-4bd0-9bec-de769a743502",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Block",
                     "type": "Button",
                     "id": "8e7decfd-f8fb-45a6-8ea5-abcdcba4fa5b",
@@ -61,27 +52,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "WeaponSwitchLeft",
-                    "type": "Button",
-                    "id": "13914f75-a590-403f-99e8-1f1fb3d31ce0",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "WeaponSwitchRight",
-                    "type": "Button",
-                    "id": "ec94933b-834f-4f5e-a758-4020d4040d58",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Interact",
                     "type": "Button",
                     "id": "e655fe04-cc8e-4ef5-a026-98ae23e8c035",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DialogueSkip",
+                    "type": "Button",
+                    "id": "8ce26557-d508-4174-a1a5-09b9319011fb",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -223,28 +205,6 @@
                 },
                 {
                     "name": "",
-                    "id": "7776a489-2af8-430b-9e41-3b8d8843f6cc",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Interaction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7d52cc86-3463-4970-b286-8785dcaf164d",
-                    "path": "<Gamepad>/buttonSouth",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "Interaction",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "c80d0f56-6823-41e3-87f9-c032d54f4bdc",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
@@ -267,56 +227,45 @@
                 },
                 {
                     "name": "",
-                    "id": "bad4864e-0c1e-410e-b1c6-c88370b657e8",
-                    "path": "<Keyboard>/q",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "WeaponSwitchLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "8058b3f1-c388-4c95-b518-01c620988b86",
-                    "path": "<Gamepad>/leftShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "WeaponSwitchLeft",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "3d4c72bc-6fd7-44fe-b272-b70f2e0e8092",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "WeaponSwitchRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2d2b7f26-b3ea-4497-b509-4f01aaae9df6",
-                    "path": "<Gamepad>/rightShoulder",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Gamepad",
-                    "action": "WeaponSwitchRight",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "ff691f72-a7e3-4bda-95a7-eebae9eb6d60",
                     "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "df4aa913-a13f-4c24-8192-bc12cbc21ad9",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b88f03b5-cc6a-458d-8868-4dcd75d8d4cd",
+                    "path": "<Keyboard>/enter",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "DialogueSkip",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3ecfe31b-8a46-4b97-8dc0-c29f9d6664a6",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "DialogueSkip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
