@@ -42,16 +42,15 @@ public class PlayerInputManager : MonoBehaviour
             InteractInput = true;
     }
 
-    
-
-    private void Update()
+    public void OnDialogueSkipInput(InputAction.CallbackContext context)
     {
-        if (Keyboard.current != null && Keyboard.current.enterKey.wasPressedThisFrame)
+        if (context.started)
         {
             if (DialogueManager.Instance != null)
                 DialogueManager.Instance.HandleEnterPress();
         }
     }
+
     public void OnWeaponLeftInput(InputAction.CallbackContext context)
     {
         if (context.started){
