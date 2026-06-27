@@ -14,11 +14,13 @@ public class PlayerMoveState : PlayerNormalState
     public override void Enter()
     {
         base.Enter();
+        player.PlayerHealthStats.OnDamageTaken += player.HandleDamageTaken;
     }
 
     public override void Exit()
     {
         base.Exit();
+        player.PlayerHealthStats.OnDamageTaken -= player.HandleDamageTaken;
     }
 
     public override void LogicUpdate()

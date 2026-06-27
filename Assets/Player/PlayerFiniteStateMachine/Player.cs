@@ -24,6 +24,11 @@ public class Player : MonoBehaviour
     public PlayerAttackState AttackState {  get; private set; }
     public PlayerDeathState DeathState { get; private set; }
 
+    public PlayerDamaged DamagedState {  get; private set; }
+
+    private DamageFlash damageFlash;
+    public DamageFlash DamageFlash => damageFlash;
+
     [SerializeField]
     private PlayerData playerData;
 
@@ -67,6 +72,7 @@ public class Player : MonoBehaviour
         weapon = transform.Find("Weapon").GetComponent<Weapon>();
 
         actionHitBox = GetComponentInChildren<ActionHitBox>();
+        damageFlash = GetComponentInChildren<DamageFlash>(); //
 
         StateMachine = new PlayerStateMachine();
         IdleState = new PlayerIdleState(this, StateMachine, playerData, "idle");
@@ -74,6 +80,7 @@ public class Player : MonoBehaviour
         DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
         AttackState = new PlayerAttackState(this, StateMachine, playerData, "empty", weapon, actionHitBox);
         DeathState = new PlayerDeathState(this, StateMachine, playerData, "death", 2f);
+        DamagedState = new PlayerDamaged(this, StateMachine, playerData, "idle", 0.5f);
     }
 
     private void Start()
@@ -101,14 +108,6 @@ public class Player : MonoBehaviour
     private void Update()
     {
         CurrentVelocity = RB.linearVelocity;
-
-        //NOTA PENTRU MIHAI GIBONUL NU DECOMENTA ACEST COD. MULTUMESC
-        // Blocheaza input-ul de miscare daca dialogul e activ
-        //if (DialogueManager.Instance != null && DialogueManager.Instance.IsActive)
-        //{
-        //    SetVelocity(Vector3.zero);
-        //    return;
-        //}
 
         if (DialogueManager.Instance != null && DialogueManager.Instance.IsActive)
         {
@@ -207,6 +206,12 @@ public class Player : MonoBehaviour
     public void AddForceInDirrection(Vector3 force)
     {
         RB.AddForce(force);
+    }
+
+    public void HandleDamageTaken(float damageAmount)
+    {
+        //Debug.Log($"Damage luat in Idle: {damageAmount}");
+        StateMachine.ChangeState(DamagedState);
     }
 
     #endregion
