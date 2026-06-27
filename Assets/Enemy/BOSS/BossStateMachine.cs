@@ -109,17 +109,8 @@ public class BossStateMachine : MonoBehaviour
     void UpdateStunned()
     {
         stunTimer -= Time.deltaTime;
-        //Debug.Log(stunTimer.ToString() + "timer");
         if (stunTimer <= 0)
         {
-            //if (currentHealth <= maxHealth * 0.3f)
-            //{
-            //    EnterEnragedState();
-            //}
-            //else
-            //{
-            //    StartEnemyPhase();
-            //}
             StartEnemyPhase();
         }
     }
