@@ -4,23 +4,43 @@ public class BossEncounter : EncounterController
 {
     public HealthStats bossHealth;
 
+    private Animator animator;
 
     protected override void Start()
     {
-        base.Start();    
+        animator = GetComponentInChildren<Animator>();
+
+        base.Start();
     }
 
     protected override void Update()
     {
         base.Update();
+
+        if (bossHealth.health <= 0)
+            return;
+
         if (inCooldown)
         {
             bossHealth.canTakeDamage = true;
+            animator.SetBool("IsStunned", true);
         }
         else
         {
             bossHealth.canTakeDamage = false;
+            animator.SetBool("IsStunned", false);
         }
+    }
+
+    protected override void StartWave()
+    {
+        bossHealth.canTakeDamage = false;
+
+        // Play summon animation
+        animator.SetTrigger("Summon");
+
+        // Spawn enemies immediately
+        base.StartWave();
     }
 
     protected override void WaveCompleted()
@@ -35,19 +55,14 @@ public class BossEncounter : EncounterController
         }
     }
 
-    protected override void StartWave()
-    {
-        bossHealth.canTakeDamage = false;
-
-        base.StartWave();
-    }
-
     protected override void EncounterCompleted()
     {
+        animator.SetTrigger("Death");
+
         Debug.Log("Boss Defeated");
 
         arenaController.BossDefeated();
 
-        Destroy(gameObject);
+        Destroy(gameObject, 2f);
     }
 }
