@@ -22801,6 +22801,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7872488852533915448, guid: cb72490f2b95bb24398bff9c75525bec, type: 3}
+      propertyPath: targetRoom
+      value: 
+      objectReference: {fileID: 646408795}
+    - target: {fileID: 7872488852533915448, guid: cb72490f2b95bb24398bff9c75525bec, type: 3}
       propertyPath: targetSpawnPoint
       value: 
       objectReference: {fileID: 0}
@@ -31834,7 +31838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProgressDoor
   destinations:
-  - targetRoom: {fileID: 522282767}
+  - targetRoom: {fileID: 1558876342}
   - targetRoom: {fileID: 522282767}
   - targetRoom: {fileID: 1558876342}
 --- !u!1001 &8520239498070241310
