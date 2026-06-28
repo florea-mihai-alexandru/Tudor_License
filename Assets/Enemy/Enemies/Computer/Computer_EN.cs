@@ -45,7 +45,7 @@ public class Computer_EN : Enemy
             if (oponentScript != null)
             {
                 //Debug.Log("TOOK DAMAGE");
-                oponentScript.TakeDamage(1, enemyData.attackDuration);
+                oponentScript.TakeDamage(enemyData.Damage, enemyData.attackDuration);
             }
         }
     }

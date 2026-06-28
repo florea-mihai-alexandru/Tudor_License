@@ -194,6 +194,11 @@ public class Enemy : MonoBehaviour
 
         SetVelocity(CurrentMoveDir * speed);
     }
+
+    public float getNpcInfluence()
+    {
+        return enemyData.npcInfluence;
+    }
     #endregion
 
     #region Check functions

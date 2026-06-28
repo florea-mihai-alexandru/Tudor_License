@@ -23,4 +23,7 @@ public class EnemyData : ScriptableObject
     public float preWindupDuration = 1f;
     public float AoE_Radius = 15f;
     public float Damage = 1;
+
+    [Header("Context Steering Data")]
+    public float npcInfluence = 1f;
 }
