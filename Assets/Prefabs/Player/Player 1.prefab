@@ -120,7 +120,7 @@ Transform:
   m_GameObject: {fileID: 3335300628442961855}
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
-  m_LocalPosition: {x: 1.78, y: -0.69000006, z: -0.4}
+  m_LocalPosition: {x: 3.59, y: -0.69000006, z: -0.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -205,7 +205,7 @@ Transform:
   m_GameObject: {fileID: 3390586908822809555}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.13, y: 0.67, z: -0.09}
+  m_LocalPosition: {x: -2.57, y: 0.67, z: -0.09}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 6090028768281631977}
   - component: {fileID: 8785325484888765595}
   m_Layer: 10
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -358,9 +358,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   playerData: {fileID: 11400000, guid: 6f6b9ff2b2388a8429e80264ddf2ede4, type: 2}
   playerSpriteTransform: {fileID: 5100646221359716632}
-  isDead: 0
-  inBoss: 0
-  cineCam: {fileID: 0}
 --- !u!114 &2822759416471934249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -440,16 +437,12 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Dash[/Keyboard/shift]'
   - m_PersistentCalls:
       m_Calls: []
+    m_ActionId: 2d8e1877-f3b2-4bd0-9bec-de769a743502
+    m_ActionName: 'Gameplay/Interaction[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
     m_ActionId: 8e7decfd-f8fb-45a6-8ea5-abcdcba4fa5b
     m_ActionName: 'Gameplay/Block[/Mouse/rightButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e655fe04-cc8e-4ef5-a026-98ae23e8c035
-    m_ActionName: 'Gameplay/Interact[/Keyboard/e]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8ce26557-d508-4174-a1a5-09b9319011fb
-    m_ActionName: 'Gameplay/DialogueSkip[/Keyboard/enter]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -482,8 +475,6 @@ MonoBehaviour:
   health: 3
   maxHealth: 5
   maxTotalHealth: 10
-  canTakeDamage: 1
-  damageCooldown: 0
 --- !u!54 &6090028768281631977
 Rigidbody:
   m_ObjectHideFlags: 0

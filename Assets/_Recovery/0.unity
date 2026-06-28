@@ -3061,7 +3061,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 2a1d12124e7de574f94856a2725ed97f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4985,13 +4985,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 89458698836419729, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 89458698836419729, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 380046961682514242, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
       propertyPath: m_Layer
       value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 380046961682514242, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 575142916478037913, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
       propertyPath: m_SortingOrder
@@ -5145,29 +5149,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5479930286864362746, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.96
-      objectReference: {fileID: 0}
     - target: {fileID: 5488946058332927667, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 5488946058332927667, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 5488946058332927667, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5488946058332927667, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 5488946058332927667, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.94
       objectReference: {fileID: 0}
     - target: {fileID: 6056211702042787019, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
       propertyPath: m_Layer
@@ -5194,23 +5186,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9168417111818258766, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
-      propertyPath: m_Size.x
-      value: 19.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9168417111818258766, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
-      propertyPath: m_Size.y
-      value: 19.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9168417111818258766, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: b47779a12adb26145a11bf21c9911936, type: 3}
-    - target: {fileID: 9168417111818258766, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9168417111818258766, guid: 187254bc2fce64642a003181bbe1b3e0, type: 3}
-      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -6442,7 +6418,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 2a1d12124e7de574f94856a2725ed97f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -17447,7 +17423,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 07f66b5eace9d7644a29f065f707655d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -17930,7 +17906,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 2a1d12124e7de574f94856a2725ed97f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -19983,7 +19959,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 2a1d12124e7de574f94856a2725ed97f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -20165,7 +20141,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 2a1d12124e7de574f94856a2725ed97f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -21075,7 +21051,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 2a1d12124e7de574f94856a2725ed97f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -24000,7 +23976,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 93e8f6ddbe8fe96499f149c17b3c6238, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -30759,8 +30735,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: fcf7809081a1a2d4a9e9e7858bc884b8, type: 2}
-  m_sharedMaterial: {fileID: -5941111888530626249, guid: fcf7809081a1a2d4a9e9e7858bc884b8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -31398,7 +31374,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 2a1d12124e7de574f94856a2725ed97f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
