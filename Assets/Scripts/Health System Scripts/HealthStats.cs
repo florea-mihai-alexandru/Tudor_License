@@ -2,12 +2,16 @@
  *  Author: ariel oliveira [o.arielg@gmail.com]
  */
 
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HealthStats : MonoBehaviour, IDamageable
 {
     public delegate void OnHealthChangedDelegate();
     public OnHealthChangedDelegate onHealthChangedCallback;
+
+    public event Action<float> OnDamageTaken;
 
     #region Sigleton
     [SerializeField]
@@ -54,6 +58,8 @@ public class HealthStats : MonoBehaviour, IDamageable
                 ClampHealth();
 
                 remainingCooldown = enemyAtDuration;
+
+                OnDamageTaken?.Invoke(dmg);
             }
             else
             {

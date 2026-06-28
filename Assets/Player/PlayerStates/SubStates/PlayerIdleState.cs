@@ -16,11 +16,13 @@ public class PlayerIdleState : PlayerNormalState
     {
         base.Enter();
         //player.SetVelocity(Vector3.zero);
+        player.PlayerHealthStats.OnDamageTaken += player.HandleDamageTaken;
     }
 
     public override void Exit()
     {
         base.Exit();
+        player.PlayerHealthStats.OnDamageTaken -= player.HandleDamageTaken;
     }
 
     public override void LogicUpdate()
