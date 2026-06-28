@@ -19,7 +19,7 @@ public class Room : MonoBehaviour
     [Header("Spawn Points")]
     public Transform spawnPoint;
 
-    public void EnterRoom()
+    public virtual void EnterRoom()
     {
         if (activateEncounterOnEnter &&
             encounterObject != null &&
