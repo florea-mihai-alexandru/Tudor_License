@@ -158,7 +158,7 @@ public class ContextSteering
                 float alignment = Vector3.Dot(directions[i], npcDir);
 
                 float dangerValue = Mathf.Max(0, alignment) * (NpcAvoidRadius / dist);
-                
+
                 float attackInfluence = 1f;
 
                 if (attacking)
@@ -167,6 +167,9 @@ public class ContextSteering
                 }
 
                 dangerValue *= attackInfluence;
+
+                // NEW
+                dangerValue *= other != null ? other.getNpcInfluence() : 1f;
 
                 danger[i] += Mathf.Min(dangerValue * 0.6f, 2f);
                 danger[i] = Mathf.Min(danger[i], 3f);
