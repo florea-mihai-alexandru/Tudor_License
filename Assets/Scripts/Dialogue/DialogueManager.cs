@@ -48,7 +48,8 @@ public class DialogueManager : MonoBehaviour
 
     private void ShowCurrentLine()
     {
-        npcBubble.Show(currentLines[currentIndex].text, currentAnchor);
+        DialogueLine line = currentLines[currentIndex];
+        npcBubble.Show(line.text, currentAnchor, line.voiceClip);
     }
 
     private void EndDialogue()
