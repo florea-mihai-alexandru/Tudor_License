@@ -118,6 +118,7 @@ public class Player : MonoBehaviour
         if (PlayerInput.InteractInput)
         {
             PlayerInput.InteractUsed();
+
             DialogueTrigger trigger = FindObjectsByType<DialogueTrigger>(FindObjectsSortMode.None)
                 .FirstOrDefault(t => t.IsPlayerInRange());
             if (trigger != null)
