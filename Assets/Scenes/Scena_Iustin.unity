@@ -1445,7 +1445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueBubble
   dialogueText: {fileID: 1751410828}
   typewriterSpeed: 40
-  heightOffset: 13
+  heightOffset: 14
+  audioSource: {fileID: 0}
 --- !u!114 &793792763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2688,7 +2689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3109272920896415840, guid: 28c7c36ac77c94a44ae7732603da42b3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4688156583292782048, guid: 28c7c36ac77c94a44ae7732603da42b3, type: 3}
       propertyPath: m_LocalPosition.x
