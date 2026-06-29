@@ -5655,7 +5655,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: e0995fff5d8ccd84db1ca8f88e3b0638, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5676,8 +5676,8 @@ Transform:
   m_GameObject: {fileID: 882305325}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 85.24851, y: -43, z: -906.2}
-  m_LocalScale: {x: 15, y: 15, z: 1}
+  m_LocalPosition: {x: 85.24851, y: 0, z: -470.6}
+  m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -13378,7 +13378,7 @@ Transform:
   m_GameObject: {fileID: 7232806937435994550}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2, y: 4.16, z: 0}
+  m_LocalPosition: {x: -2, y: 4.16, z: -297.46}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13746,7 +13746,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4010087163165040573, guid: c185fb93fd1ad4847964a45724b11f3d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -111.50034
+      value: -408.96033
       objectReference: {fileID: 0}
     - target: {fileID: 4010087163165040573, guid: c185fb93fd1ad4847964a45724b11f3d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -13814,11 +13814,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7883924388903297256, guid: c185fb93fd1ad4847964a45724b11f3d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -111.50034
+      value: -408.96033
       objectReference: {fileID: 0}
     - target: {fileID: 7883924388903297256, guid: c185fb93fd1ad4847964a45724b11f3d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9238645
+      value: 0.92386454
       objectReference: {fileID: 0}
     - target: {fileID: 7883924388903297256, guid: c185fb93fd1ad4847964a45724b11f3d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -13826,7 +13826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7883924388903297256, guid: c185fb93fd1ad4847964a45724b11f3d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0052728285
+      value: -0.005272829
       objectReference: {fileID: 0}
     - target: {fileID: 7883924388903297256, guid: c185fb93fd1ad4847964a45724b11f3d, type: 3}
       propertyPath: m_LocalRotation.z
@@ -14188,7 +14188,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: f879e51ac2597f14da13133c4207d026, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -14522,48 +14522,16 @@ MonoBehaviour:
     m_ActionName: 'Gameplay/Dash[/Keyboard/shift]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 2d8e1877-f3b2-4bd0-9bec-de769a743502
-    m_ActionName: 'Gameplay/Interaction[/Keyboard/e]'
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 8e7decfd-f8fb-45a6-8ea5-abcdcba4fa5b
     m_ActionName: 'Gameplay/Block[/Mouse/rightButton]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 148711570685675317}
-        m_TargetAssemblyTypeName: PlayerInputManager, Assembly-CSharp
-        m_MethodName: OnWeaponLeftInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 13914f75-a590-403f-99e8-1f1fb3d31ce0
-    m_ActionName: 'Gameplay/WeaponSwitchLeft[/Keyboard/q]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 148711570685675317}
-        m_TargetAssemblyTypeName: PlayerInputManager, Assembly-CSharp
-        m_MethodName: OnWeaponRightInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: ec94933b-834f-4f5e-a758-4020d4040d58
-    m_ActionName: 'Gameplay/WeaponSwitchRight[/Keyboard/e]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: e655fe04-cc8e-4ef5-a026-98ae23e8c035
     m_ActionName: 'Gameplay/Interact[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8ce26557-d508-4174-a1a5-09b9319011fb
+    m_ActionName: 'Gameplay/DialogueSkip[/Keyboard/enter]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
