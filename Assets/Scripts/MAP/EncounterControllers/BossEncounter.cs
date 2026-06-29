@@ -1,68 +1,16 @@
 using UnityEngine;
 
-public class BossEncounter : EncounterController
+public class BossEncounter : AbstractBossEncounter
 {
     public HealthStats bossHealth;
 
-    private Animator animator;
-
-    protected override void Start()
+    protected override void SetObjectiveDamageable(bool value)
     {
-        animator = GetComponentInChildren<Animator>();
-
-        base.Start();
+        bossHealth.canTakeDamage = value;
     }
 
-    protected override void Update()
+    protected override bool ObjectiveCompleted()
     {
-        base.Update();
-
-        if (bossHealth.health <= 0)
-            return;
-
-        if (inCooldown)
-        {
-            bossHealth.canTakeDamage = true;
-            animator.SetBool("IsStunned", true);
-        }
-        else
-        {
-            bossHealth.canTakeDamage = false;
-            animator.SetBool("IsStunned", false);
-        }
-    }
-
-    protected override void StartWave()
-    {
-        bossHealth.canTakeDamage = false;
-
-        // Play summon animation
-        animator.SetTrigger("Summon");
-
-        // Spawn enemies immediately
-        base.StartWave();
-    }
-
-    protected override void WaveCompleted()
-    {
-        if (bossHealth.health <= 0)
-        {
-            EncounterCompleted();
-        }
-        else
-        {
-            StartWave();
-        }
-    }
-
-    protected override void EncounterCompleted()
-    {
-        animator.SetTrigger("Death");
-
-        Debug.Log("Boss Defeated");
-
-        arenaController.BossDefeated();
-
-        Destroy(gameObject, 2f);
+        return bossHealth.health <= 0;
     }
 }

@@ -38,6 +38,9 @@ public class HealthStats : MonoBehaviour, IDamageable
     private float remainingCooldown;
     public float damageCooldown = 0f;
 
+    public event Action OnDeath;
+    private bool isDead = false;
+
     public void Heal(float health)
     {
         this.health += health;
@@ -84,8 +87,13 @@ public class HealthStats : MonoBehaviour, IDamageable
     {
         health = Mathf.Clamp(health, 0, maxHealth);
 
-        if (onHealthChangedCallback != null)
-            onHealthChangedCallback.Invoke();
+        onHealthChangedCallback?.Invoke();
+
+        if (!isDead && health <= 0)
+        {
+            isDead = true;
+            OnDeath?.Invoke();
+        }
     }
 
     public void Damage(float amount)
