@@ -2,11 +2,12 @@ using UnityEngine;
 
 public abstract class AbstractBossEncounter : EncounterController
 {
-    protected Animator animator;
+    public Animator animator;
 
     protected override void Start()
     {
-        animator = GetComponentInChildren<Animator>();
+        if (animator == null)
+            animator = GetComponentInChildren<Animator>();
 
         base.Start();
     }

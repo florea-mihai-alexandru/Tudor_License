@@ -14,6 +14,8 @@ public class LevelManager : MonoBehaviour
 
     public int currentStage = 0;
 
+    public Transform playerTransform;
+
     private void Awake()
     {
         Instance = this;
