@@ -63,6 +63,8 @@ public class EncounterController : MonoBehaviour
                     spawn.position,
                     Quaternion.identity);
 
+            enemy.PlayerTransform = LevelManager.Instance.playerTransform;
+
             aliveEnemies.Add(enemy);
         }
     }

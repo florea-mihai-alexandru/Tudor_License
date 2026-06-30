@@ -6,7 +6,7 @@ public class Door : MonoBehaviour
     public bool unlocked = true;
 
     private void OnTriggerEnter(Collider other)
-    {
+    {   
         if (!other.CompareTag("Player"))
             return;
 
