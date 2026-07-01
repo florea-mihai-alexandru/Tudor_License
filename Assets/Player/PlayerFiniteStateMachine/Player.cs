@@ -119,10 +119,16 @@ public class Player : MonoBehaviour
         {
             PlayerInput.InteractUsed();
 
-            DialogueTrigger trigger = FindObjectsByType<DialogueTrigger>(FindObjectsSortMode.None)
-                .FirstOrDefault(t => t.IsPlayerInRange());
-            if (trigger != null)
-                DialogueManager.Instance.StartDialogue(trigger.dialogueData, trigger.BubbleAnchor);
+            bool canOpenDialogue = DialogueManager.Instance == null
+                || (!DialogueManager.Instance.IsActive && DialogueManager.Instance.CanInteract);
+
+            if (canOpenDialogue)
+            {
+                DialogueTrigger trigger = FindObjectsByType<DialogueTrigger>(FindObjectsSortMode.None)
+                    .FirstOrDefault(t => t.IsPlayerInRange());
+                if (trigger != null)
+                    DialogueManager.Instance.StartDialogue(trigger.dialogueData, trigger.BubbleAnchor);
+            }
         }
 
         Vector3 moveDir = new Vector3(PlayerInput.MoveInput.x, 0f, PlayerInput.MoveInput.y).normalized;
