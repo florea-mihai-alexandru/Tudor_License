@@ -62,7 +62,7 @@ MonoBehaviour:
         - name: 
           Debug: 1
           <HitBoxCenter>k__BackingField: {x: 3, y: 0, z: 0}
-          <HitBoxSize>k__BackingField: {x: 8, y: 6, z: 3}
+          <HitBoxSize>k__BackingField: {x: 18, y: 3, z: 18}
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
           m_Bits: 640
