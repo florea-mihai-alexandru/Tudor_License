@@ -20,9 +20,10 @@ public class ProgressDoor : MonoBehaviour
         if (stage >= destinations.Length)
             stage = destinations.Length - 1;
 
-        LevelManager.Instance.Teleport(
-            destinations[stage].targetRoom.spawnPoint
-        );
+        LevelManager.Instance.Transition(destinations[stage].targetRoom);
+        //LevelManager.Instance.Teleport(
+        //    destinations[stage].targetRoom.spawnPoint
+        //);
         LevelManager.Instance.EnterRoom(destinations[stage].targetRoom);
     }
 }

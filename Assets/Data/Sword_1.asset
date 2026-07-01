@@ -24,7 +24,7 @@ MonoBehaviour:
       data:
         name: WeaponSpriteData
         attackData:
-        - name: 
+        - name: Attack 1
           <SpritesRight>k__BackingField:
           - {fileID: 21300000, guid: ba9e50df879766046af655aff531cbba, type: 3}
           - {fileID: 21300000, guid: b7d5951c221acb443b57dba55b8d9c64, type: 3}
@@ -59,10 +59,10 @@ MonoBehaviour:
       data:
         name: ActionHitBoxData
         attackData:
-        - name: 
+        - name: Attack 1
           Debug: 1
           <HitBoxCenter>k__BackingField: {x: 3, y: 0, z: 0}
-          <HitBoxSize>k__BackingField: {x: 8, y: 6, z: 3}
+          <HitBoxSize>k__BackingField: {x: 18, y: 6, z: 18}
         <DetectableLayers>k__BackingField:
           serializedVersion: 2
           m_Bits: 640
@@ -71,5 +71,5 @@ MonoBehaviour:
       data:
         name: DamageData
         attackData:
-        - name: 
+        - name: Attack 1
           <Amount>k__BackingField: 1

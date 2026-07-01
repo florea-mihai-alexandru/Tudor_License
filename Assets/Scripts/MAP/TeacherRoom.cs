@@ -15,6 +15,9 @@ public class TeacherRoom : Room
     public override void EnterRoom()
     {
         Debug.Log($"Stage Groups count: {stageGroups.Length}");
+
+        LevelManager.Instance.LevelCompleted();
+
         SpawnProfesoriForStage(LevelManager.Instance.currentStage);
     }
 

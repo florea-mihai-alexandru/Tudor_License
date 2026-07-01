@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerDeathState : PlayerState
 {
     float duration = 2f;
+    float timer = 0f;
     public PlayerDeathState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string animBoolName, float duration) : base(player, stateMachine, playerData, animBoolName)
     {
         this.duration = duration;
@@ -16,6 +17,7 @@ public class PlayerDeathState : PlayerState
     public override void Enter()
     {
         base.Enter();
+        timer = duration;
     }
 
     public override void Exit()
@@ -26,10 +28,11 @@ public class PlayerDeathState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-        duration -= Time.deltaTime;
-        if (duration <= 0)
+        timer -= Time.deltaTime;
+        if (timer <= 0)
         {
-            GameObject.Destroy(this.player.gameObject);
+            //GameObject.Destroy(this.player.gameObject);
+            player.levelManager.PlayerDied();
         }
     }
 
