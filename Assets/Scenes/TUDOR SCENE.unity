@@ -4983,6 +4983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DialogueManager
   npcBubble: {fileID: 1805499619}
+  interactCooldown: 1
 --- !u!4 &242566369
 Transform:
   m_ObjectHideFlags: 0
@@ -31259,7 +31260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   cineCam: {fileID: 673680849}
-  currentStage: 2
+  currentStage: 0
   deathScreen: {fileID: 1179038299}
   successScreen: {fileID: 1565450972}
   endScreen: {fileID: 143517338}
@@ -40550,7 +40551,7 @@ MonoBehaviour:
   targetRoom: {fileID: 9093502889025405408}
   unlocked: 1
   sr: {fileID: 0}
-  skipTransition: 0
+  skipTransition: 1
 --- !u!114 &445210884918219964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41787,7 +41788,7 @@ MonoBehaviour:
   targetRoom: {fileID: 1641208851975409770}
   unlocked: 1
   sr: {fileID: 0}
-  skipTransition: 0
+  skipTransition: 1
 --- !u!1001 &1069948330175488440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46655,7 +46656,7 @@ MonoBehaviour:
   targetRoom: {fileID: 1083620420193256738}
   unlocked: 1
   sr: {fileID: 0}
-  skipTransition: 0
+  skipTransition: 1
 --- !u!33 &3760642513157920046
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -47160,7 +47161,7 @@ MonoBehaviour:
   targetRoom: {fileID: 6517301771256176111}
   unlocked: 1
   sr: {fileID: 0}
-  skipTransition: 0
+  skipTransition: 1
 --- !u!4 &4086853172360744782
 Transform:
   m_ObjectHideFlags: 0
@@ -50080,7 +50081,7 @@ MonoBehaviour:
   targetRoom: {fileID: 3131213857832603788}
   unlocked: 1
   sr: {fileID: 0}
-  skipTransition: 0
+  skipTransition: 1
 --- !u!212 &6225189747575485507
 SpriteRenderer:
   serializedVersion: 2
@@ -50687,7 +50688,7 @@ MonoBehaviour:
   targetRoom: {fileID: 8962408771340634016}
   unlocked: 1
   sr: {fileID: 0}
-  skipTransition: 0
+  skipTransition: 1
 --- !u!114 &6517301771256176111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51452,7 +51453,7 @@ MonoBehaviour:
   targetRoom: {fileID: 3887794157432468366}
   unlocked: 1
   sr: {fileID: 0}
-  skipTransition: 0
+  skipTransition: 1
 --- !u!33 &7049255785343728136
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -53777,7 +53778,7 @@ MonoBehaviour:
   targetRoom: {fileID: 2695857729479198308}
   unlocked: 1
   sr: {fileID: 0}
-  skipTransition: 0
+  skipTransition: 1
 --- !u!4 &8713155805502707115
 Transform:
   m_ObjectHideFlags: 0
