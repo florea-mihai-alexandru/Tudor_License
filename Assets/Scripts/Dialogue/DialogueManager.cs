@@ -3,15 +3,16 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
-
     [SerializeField] private DialogueBubble npcBubble;
-
     private DialogueLine[] currentLines;
     private int currentIndex;
-
     public bool IsActive { get; private set; }
-
     private Transform currentAnchor;
+
+    [SerializeField] private float interactCooldown = 1f;
+    private float lastEndTime = -10f;
+
+    public bool CanInteract => Time.time - lastEndTime >= interactCooldown;
 
     private void Awake()
     {
@@ -39,7 +40,6 @@ public class DialogueManager : MonoBehaviour
         }
 
         currentIndex++;
-
         if (currentIndex < currentLines.Length)
             ShowCurrentLine();
         else
@@ -56,5 +56,6 @@ public class DialogueManager : MonoBehaviour
     {
         IsActive = false;
         npcBubble.Hide();
+        lastEndTime = Time.time; 
     }
 }

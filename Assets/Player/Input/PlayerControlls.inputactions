@@ -228,7 +228,7 @@
                 {
                     "name": "",
                     "id": "ff691f72-a7e3-4bda-95a7-eebae9eb6d60",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -250,7 +250,7 @@
                 {
                     "name": "",
                     "id": "b88f03b5-cc6a-458d-8868-4dcd75d8d4cd",
-                    "path": "<Keyboard>/enter",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
@@ -261,7 +261,7 @@
                 {
                     "name": "",
                     "id": "3ecfe31b-8a46-4b97-8dc0-c29f9d6664a6",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
