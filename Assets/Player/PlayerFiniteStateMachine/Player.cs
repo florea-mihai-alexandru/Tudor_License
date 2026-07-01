@@ -4,6 +4,7 @@ using UnityEngine;
 using Unity.Cinemachine;
 
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -63,6 +64,8 @@ public class Player : MonoBehaviour
     public bool inBoss = false;
     [SerializeField] 
     private CinemachineCamera cineCam;
+
+    public LevelManager levelManager;
 
     #endregion
 
@@ -213,6 +216,21 @@ public class Player : MonoBehaviour
     {
         //Debug.Log($"Damage luat in Idle: {damageAmount}");
         StateMachine.ChangeState(DamagedState);
+    }
+
+    public void Respawn()
+    {
+        levelManager.Teleport(levelManager.currentRoomCheckpoint.spawnPoint.position);
+        levelManager.EnterRoom(levelManager.currentRoomCheckpoint);
+
+        PlayerHealthStats.Heal(PlayerHealthStats.MaxHealth);
+        isDead = false;
+        StateMachine.ChangeState(IdleState);
+    }
+
+    public void Heal()
+    {
+        PlayerHealthStats.Heal(PlayerHealthStats.MaxHealth);
     }
 
     #endregion

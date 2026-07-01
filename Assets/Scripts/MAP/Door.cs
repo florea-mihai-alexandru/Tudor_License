@@ -4,6 +4,27 @@ public class Door : MonoBehaviour
 {
     public Room targetRoom;
     public bool unlocked = true;
+    public SpriteRenderer sr;
+    public bool skipTransition = false;
+
+    private void Awake()
+    {
+        sr = GetComponentInChildren<SpriteRenderer>();
+    }
+
+    public void doorEn()
+    {
+        unlocked = true;
+        sr.enabled = true;
+        Debug.Log(sr);
+    }
+
+    public void doorDis()
+    {
+        unlocked = false;
+        sr.enabled = false;
+        Debug.Log(sr);
+    }
 
     private void OnTriggerEnter(Collider other)
     {   
@@ -13,7 +34,10 @@ public class Door : MonoBehaviour
         if (!unlocked)
             return;
 
-        LevelManager.Instance.Teleport(targetRoom.spawnPoint);
+        if (!skipTransition)
+            LevelManager.Instance.Transition(targetRoom);
+        else
+            LevelManager.Instance.Teleport(targetRoom.spawnPoint);
         LevelManager.Instance.EnterRoom(targetRoom);
     }
 }

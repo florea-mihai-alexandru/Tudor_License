@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: InvisibleEnemy
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   chaseDisThresh: 150
-  attackDisThresh: 7.5
+  attackDisThresh: 15
   idleDuration: 2.4
   wanderDuration: 5
   wanderSpeed: 20
@@ -21,6 +21,6 @@ MonoBehaviour:
   chaseSpeed: 100
   attackDuration: 0.475
   preWindupDuration: 0.4
-  AoE_Radius: 15
+  AoE_Radius: 20
   Damage: 1
-  npcInfluence: 1
+  npcInfluence: 0

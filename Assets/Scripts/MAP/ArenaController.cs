@@ -9,18 +9,18 @@ public class ArenaController : MonoBehaviour
 
     private void Start()
     {
-        exitDoor.unlocked = false;
-        bossDoor.unlocked = false;
+        exitDoor.doorDis();
+        bossDoor.doorDis();
     }
 
     public void EncounterFinished()
     {
-        bossDoor.unlocked = true;   
+        bossDoor.doorEn();
     }
 
     public void BossDefeated()
     {
-        exitDoor.unlocked = true;
+        exitDoor.doorEn();
         LevelManager.Instance.CompleteStage();
     }
 }
