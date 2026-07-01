@@ -1,7 +1,8 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-public class Mainmenu:MonoBehaviour
+public class Mainmenu : MonoBehaviour
 {
     public void Play()
     {
@@ -12,5 +13,12 @@ public class Mainmenu:MonoBehaviour
     {
         Application.Quit();
     }
+
+    private void Update()
+    {
+        if (Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame)
+        {
+            Play();
+        }
+    }
 }
-    
